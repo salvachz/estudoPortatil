@@ -1,6 +1,85 @@
+@font-face{font-family:"Corbel W10 Regular";src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4");src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#iefix") format("embedded-opentype"),url("//fast.fonts.net/dv2/14/13ec8856-536a-4412-803c-83cb09c51b73.woff2?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff2"),url("//fast.fonts.net/dv2/3/ba9270be-99b8-456a-89dc-102d94a40672.woff?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff"),url("//fast.fonts.net/dv2/1/bf4356f0-7fa2-4d6b-b5c4-213376596488.ttf?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("truetype"),url("//fast.fonts.net/dv2/11/3047dd87-5f41-44cb-8ae8-37e3fa0e3502.svg?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#3047dd87-5f41-44cb-8ae8-37e3fa0e3502") format("svg");}
+
 * {
 
     margin:0;
     padding:0;
     border:0;
+    font-family:  'Corbel W10 Regular';
+}
+
+body{
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+
+#ngView {
+    width:100%;
+    height:100%;
+}
+
+/* Login */
+#loginCtrl {
+    width:100%;
+    height:100%;
+    background:#112f37;
+}
+#loginCtrl .left{
+
+}
+
+#loginCtrl .bar{
+    width:35%;
+    height:100%;
+    background:#FFF;
+    float:right;
+    margin-right:8%;
+}
+
+#loginCtrl .bar .login-tab{
+    width:80%;
+    margin:auto;
+    margin-top:40%;
+}
+
+#loginCtrl .bar .login-tab table{
+    width:100%;
+}
+
+#loginCtrl .bar .login-tab table tr td input{
+    color: #a0c7ce;
+    width:100%;
+    height: 3vw;
+    margin-top:1vw;
+    border-bottom:1px solid #a0c7ce;
+    font-size: 1.5vw;
+}
+
+#loginCtrl .bar .login-tab table tr td input[type=button]{
+    width: 9vw;
+    height: 2.5vw;
+    background: #a0c7ce;
+    float: right;
+    border-radius: 0.5vw;
+    color: #FFF;
+
+}
+#loginCtrl .bar .register span{
+    width:100%;
+    height:2vw;
+    display:block;
+    font-size:1.5vw;
+    text-align: center;
+    margin:1vw 0;
+}
+
+#loginCtrl .bar .register input{
+    width:60%;
+    height:4vw;
+    display:block;
+    margin:auto;
+    background: #438f9d;
+    border-radius:1vw;
+    color:#FFF;
 }

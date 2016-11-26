@@ -24,6 +24,10 @@ SECRET_KEY = ')!o3z3vi6%o5&fzun4ws^lf4sjb1z44%2m4fox(kl8ef66amt)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#PROJECT_ROOT = '/home/salvachz/hack/'
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, "estudo_portatil", "static"),
+#)
 
 ALLOWED_HOSTS = []
 
@@ -63,12 +67,15 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'hack.wsgi.application'
 
@@ -124,7 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+#if not DEBUG:
+#    STATIC_ROOT = 'static/'
+
+AUTH_PROFILE_MODULE = 'estudo_portatil.UserProfile'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

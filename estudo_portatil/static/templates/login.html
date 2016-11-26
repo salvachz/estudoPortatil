@@ -1,0 +1,33 @@
+<div id="loginCtrl">
+    <div class="left">
+    </div>
+    <div class="bar">
+        <div class="login-tab">
+            <span>LOGIN</span>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <input ng-model="data.username" type="text" name="hack-login" placeholder="Nome do Usuário"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" ng-model="data.password" name="hack-passwd" placeholder="senha"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" value="ENTRAR" ng-click="login()"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div><!--.login-tab-->
+
+        <div class="register">
+            <span>É novo aqui? :o</span>
+            <input type="button" value="CADASTRE-SE"/>
+        </div><!--.register-->
+    </div>
+</div>

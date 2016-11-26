@@ -1,12 +1,21 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="pt-BR" ng-app="app">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Welcome</title>
-<link rel="stylesheet" href="c/style.css">
+
+<base href="/portal/">
+
+<link rel="stylesheet" href="/static/c/style.css">
+<script type="text/javascript" src="/static/j/angular.min.js"></script>
+<script type="text/javascript" src="/static/j/angular-route.js"></script>
+<script type="text/javascript" src="/static/j/app.js"></script>
+<script type="text/javascript" src="/static/j/service/user.js"></script>
+<script type="text/javascript" src="/static/j/ctrl/loginCtrl.js"></script>
  
 </head>
 <body>
+<ng-view id="ngView"></ng-view>
 </body>
 </html>
