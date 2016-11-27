@@ -1,5 +1,5 @@
 from userProfile import UserProfile
 from category import Category
-from ask import Ask
+from wording import Wording
 
-__all__ = ['UserProfile', 'Ask', 'Category']
+__all__ = ['UserProfile', 'Wording', 'Category']

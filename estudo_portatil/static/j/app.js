@@ -24,12 +24,16 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         templateUrl: '/static/templates/propostas-redacao.html',
         controller: 'PropostasRedacaoCtrl'
     })
+    $routeProvider.when('/corrigir-redacao/:id', {
+        templateUrl: '/static/templates/corrigir-redacao.html',
+        controller: 'CorrigirRedacaoCtrl'
+    })
     $routeProvider.when('/corrigir-redacao', {
-        templateUrl: '/static/templates/corrigirRedacao.html',
+        templateUrl: '/static/templates/corrigir-redacao.html',
         controller: 'CorrigirRedacaoCtrl'
     })
     $routeProvider.when('/enviar-redacao', {
-        templateUrl: '/static/templates/enviarRedacao.html',
+        templateUrl: '/static/templates/enviar-redacao.html',
         controller: 'EnviarRedacaoCtrl'
     })
   .otherwise({redirectTo : '/login'});

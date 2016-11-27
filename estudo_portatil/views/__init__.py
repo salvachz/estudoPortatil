@@ -1,2 +1,4 @@
 from loginView import LoginView
-__all__ = ['loginView']
+from categoryViewSet import CategoryViewSet
+from wordingViewSet import WordingViewSet
+__all__ = ['loginView', 'CategoryViewSet', 'WordingViewSet']
