@@ -4,8 +4,7 @@ from rest_framework import authentication, permissions
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.utils import timezone
-from core.models import UserProfile
-from core.serializers import UserProfileSerializer
+from estudo_portatil.models import UserProfile
 
 class LoginView(APIView):
 
@@ -16,7 +15,8 @@ class LoginView(APIView):
 
     def get(self, request, format=None):
         if not request.user:
-            return Response({'errors':['empty data']}, status=404)
+            return Response({'errors':['wrong user/pass']}, status=200)
+        response = Response({'msg':['logged']}, status=200)
+        response.set_cookie('is_logged', 'True')
+        return response
 
-        userProfileSerialized = UserProfileSerializer(request.user)
-        return Response(userProfileSerialized.data)

@@ -1,6 +1,8 @@
 app
-.service('UserService', function(CONFIG, $q, $http, $httpParamSerializer){
+.service('UserService', function(CONFIG, $q, $http, $httpParamSerializer, $cookies){
     var that = {
+
+        is_loged: false,
 
         login: function(data){
             var q = $q.defer();
@@ -15,6 +17,8 @@ app
                 })
                 .then(
                 function(response){
+                    if($cookies.get('is_logged')=='True')
+                        that.is_loged = true;
                 q.resolve(response.data);
                 },
                 function(error){
@@ -26,5 +30,7 @@ app
 
         }
     }
+    if($cookies.get('is_logged')=='True')
+        that.is_loged = true;
     return that;
 });

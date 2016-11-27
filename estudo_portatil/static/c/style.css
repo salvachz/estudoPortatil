@@ -8,6 +8,10 @@
     font-family:  'Corbel W10 Regular';
 }
 
+.clear{
+    clear:both;
+}
+
 body{
     position:absolute;
     width:100%;
@@ -82,4 +86,75 @@ body{
     background: #438f9d;
     border-radius:1vw;
     color:#FFF;
+}
+
+
+/* Dashboard */
+
+#dash-header{
+    height:7vw;
+    background: #438f9d;
+}
+#dash-header .left{
+    margin-left:2vw;
+    margin-top:1vw;
+    width:5vw;
+    height:5vw;
+    border-radius:2.5vw;
+    background:#000;
+    float:left;
+}
+#dash-header .right{
+    margin-right:2vw;
+    margin-top:1vw;
+    width:5vw;
+    height:5vw;
+    border-radius:2.5vw;
+    background:#000;
+    float:right;
+}
+
+/* Main */
+#main .dashboard{
+    width:60%;
+    margin:auto;
+    border:1px solid #000;
+}
+
+#main .dashboard .slice{
+    float:left;
+    margin:1%;
+    background: #112f37;
+    border-radius: 0.5vw;
+    height: 20vw;
+    cursor:pointer;
+}
+#main .dashboard .slice span{
+    display:block;
+    margin:auto;
+    margin-top: 9vw;
+    width:50%;
+    font-size: 2vw;
+    text-align: center;
+    color: #d2c9c0;
+}
+
+#main .dashboard .slice1{
+    width:28%;
+}
+#main .dashboard .slice1 span{
+    width:60%;
+}
+#main .dashboard .slice2{
+    width:68%;
+}
+#main .dashboard .slice3{
+    width:98%;
+}
+
+#main .dashboard .slice3 span{
+    margin-top:8vw;
+}
+#main .dashboard .slice3 span.no-nl{
+    margin-top:0;
 }
