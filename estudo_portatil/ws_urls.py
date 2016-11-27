@@ -8,8 +8,11 @@ urlpatterns = [
     url(r'^category/', views.CategoryViewSet.as_view({
         'get':'list'
     })),
-    url(r'^wording/', views.WordingViewSet.as_view({
+    url(r'^wording/$', views.WordingViewSet.as_view({
         'get':'list'
+    })),
+    url(r'^wording/(?P<pk>[0-9]+)/$', views.WordingViewSet.as_view({
+        'get':'retrive'
     })),
 
 ]

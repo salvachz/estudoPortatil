@@ -4,7 +4,7 @@ app
 
         is_loged: false,
 
-        getWordingList: function(data){
+        getWordingList: function(){
             var q = $q.defer();
             $http.get(CONFIG.WS_URL+'/wording/')
                 .then(
@@ -18,7 +18,23 @@ app
             );
             return q.promise
 
-        }
+        },
+
+        getWordingList: function(id){
+            var q = $q.defer();
+            $http.get(CONFIG.WS_URL+'/wording/'+id+'/')
+                .then(
+                function(response){
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on getWording ID '+id+' HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
     }
     return that;
 });

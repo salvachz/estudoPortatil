@@ -14,7 +14,14 @@ class WordingViewSet(viewsets.ModelViewSet):
     queryset = Wording.objects.all()
     serializer_class = WordingSerializer
 
-    def list(self, request, format = None):
+    def list(self, request, format=None):
         queryset = Wording.objects.all()
         serializer = WordingSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def retrive(self, request, pk=None):
+        if not pk:
+            return Response({'errors':['empty PK']}, status=404)
+        queryset = Wording.objects.filter(id=pk)
+        serializer = WordingSerializer(queryset, many=True)
+        return Response(serializer.data[0])
