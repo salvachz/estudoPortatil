@@ -20,7 +20,7 @@ app
 
         },
 
-        getWordingList: function(id){
+        getWording: function(id){
             var q = $q.defer();
             $http.get(CONFIG.WS_URL+'/wording/'+id+'/')
                 .then(

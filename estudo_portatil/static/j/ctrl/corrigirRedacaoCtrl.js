@@ -5,7 +5,7 @@ app.controller('CorrigirRedacaoCtrl', function(WordingService, $scope, $location
     console.log(wording_id);
     $scope.topics = CONFIG.TOPIC_INFO;
 
-    WordingService.getWordingList(wording_id).then(
+    WordingService.getWording(wording_id).then(
         function(wording){
             $scope.wording = wording;
         },

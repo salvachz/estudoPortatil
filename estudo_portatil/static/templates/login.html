@@ -1,5 +1,11 @@
+<div ng-if="show_register" id="register" ng-include="'/static/templates/partials/__register.html'"></div>
 <div id="loginCtrl">
     <div class="left">
+        <img src="/static/i/home_logo.png" rel="logo"/>
+        <h1>BEM VINDO! :D</h1>
+        <h2>Aqui voce aprende ensinando</h2>
+        <h2>Somos uma rede de</h2>
+        <h3>CONHECIMENTO COMPARTILHADO</h3>
     </div>
     <div class="bar">
         <div class="login-tab">
@@ -27,7 +33,7 @@
 
         <div class="register">
             <span>É novo aqui? :o</span>
-            <input type="button" value="CADASTRE-SE"/>
+            <input type="button" value="CADASTRE-SE" ng-click="showRegister()"/>
         </div><!--.register-->
     </div>
 </div>
