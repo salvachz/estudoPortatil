@@ -196,3 +196,92 @@ body{
     text-decoration:underline;
     color:#7d7d7d;
 }
+
+/* Corrigir Redacao */
+
+#main .corrigirRedacao .content{
+    float:right;
+    width:55%;
+    margin-right:15%;
+}
+#main .corrigirRedacao .content .wording-head{
+    margin-top:3vw;
+}
+#main .corrigirRedacao .content .wording-head .left{
+    float:left;
+}
+#main .corrigirRedacao .content .wording-head .left .logo{
+    width:6vw;
+    height:6vw;
+    border-radius:3vw;
+    background:#438f9d;
+    background:#112f37;
+    float:left;
+}
+#main .corrigirRedacao .content .wording-head .left .name{
+    margin-top:2vw;
+    margin-left:1vw;
+    color:#112f37;
+    font-weight:bold;
+    float:right;
+}
+#main .corrigirRedacao .content .wording-head .right{
+    float:right;
+    margin-right:1vw;
+    padding:0.3vw 1vw;
+    color:#438f9d;
+    border:1px solid #438f9d;
+    border-radius:0.5vw;
+    margin-top:1.5vw;
+}
+#main .corrigirRedacao .content .title{
+    margin:3vw 0;
+    color:#438f9d;
+}
+#main .corrigirRedacao .content .text{
+    color:#7d7d7d;
+    font-size:1.7vw;
+}
+
+#main .corrigirRedacao .content .aval table{
+    width:100%;
+}
+#main .corrigirRedacao .content .aval table tr td{
+}
+#main .corrigirRedacao .content .aval table tr td.info{
+    padding:1vw 0;
+    text-align:right;
+    color:#7d7d7d;
+    width:30%;
+}
+#main .corrigirRedacao .content .aval table tr td.textarea{
+    background:#eff3f5;
+    min-height:100%;
+    width:70%;
+    margin-top:1vw;
+}
+#main .corrigirRedacao .content .aval table tr td.textarea textarea{
+    background:#eff3f5;
+    width:100%;
+    min-height:8vw;
+    padding:0.8vw;
+}
+#main .corrigirRedacao .content .aval .last td:first-of-type{
+    text-align:right;
+}
+#main .corrigirRedacao .content .aval .last td select{
+    padding: 0.3vw;
+    border-radius: 0.4vw;
+    background: #eff3f5;
+}
+#main .corrigirRedacao .content .aval input[type=button]{
+    width: 9vw;
+    height: 2.5vw;
+    background: #a0c7ce;
+    float: right;
+    cursor:pointer;
+    border-radius: 0.5vw;
+    color: #FFF;
+
+}
+

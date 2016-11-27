@@ -1,26 +1,49 @@
 <div id="main">
     <div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
-    <div class="propostasRedacao">
+    <div class="corrigirRedacao">
         <div class="sidebar"></div>
         <div class="content">
             <div class="wording-head">
                 <div class="left">
                     <div class="logo"></div>
-                    <div class="name">{{wording.user.name}}</div>
+                    <div class="name">{{wording.written_by.name}}</div>
                     <div class="date">{{wording.written_at}}</div>
                 </div>
-                <div class="rigth">
+                <div class="right">
                     <span>{{wording.category.name}}</span>
                 </div>
+                <div class="clear"></div>
             </div>
 
-            <div class="title">
+            <h1 class="title">
                 {{wording.title}}
-            </div>
+            </h1>
 
             <div class="text">
                 {{wording.text}}
             </div>
+
+            <div class="aval">
+                <table>
+                    <tr ng-repeat="(topic_id,topic) in topics">
+                            <td class="info">
+                                {{topic}}
+                            </td>
+                            <td class="textarea">
+                                <textarea placeholder="Escreva aqui sua avaliação...."></textarea>
+                            </td>
+                    </tr>
+                    <tr class="last">
+                        <td>NOTA</td>
+                        <td>
+                            <select ng-model="data.nota" name="nota">
+                                <option ng-repeat="val in [1,2,3,4,5,6,7,8,9,10]" value="val">{{val}}</option>
+                            </select>
+                            <input type="button" value="ENVIAR"></input>
+                        </td>
+                    </tr>
+                </table>
+            </div><!--.aval-->
         </div><!--.content-->
     </div><!--.propostaRedacao-->
 </div><!--.main-->

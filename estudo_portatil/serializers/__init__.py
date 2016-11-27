@@ -1,5 +1,5 @@
 from categorySerializer import CategorySerializer
-from wordingSerializer import WordingSerializer
 from userProfileSerializer import UserProfileSerializer
+from wordingSerializer import WordingSerializer
 
 __all__ = ['CategorySerializer', 'WordingSerializer', 'UserProfileSerializer']

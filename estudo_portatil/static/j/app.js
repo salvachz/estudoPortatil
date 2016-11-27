@@ -40,6 +40,13 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 
 }])
 .constant('CONFIG', {
-    'WS_URL' : 'http://localhost:8000/ws'
+    'WS_URL' : 'http://localhost:8000/ws',
+    "TOPIC_INFO": {
+        '1': "Domínio da norma padrão da língua.",
+        '2': "Compreensão da proposta.",
+        '3': "Seleção e organização das informações.",
+        '4': "Demonstração de conhecimento da língua necessario para argumentação do texto.",
+        '5': "Elaboração de uma proposta de solução para os problemas abordados, respeitando os valores e considerando as diversidades socioculturais.",
+        '6': "Comentários adicionais (opcional)",
     }
-);
+});

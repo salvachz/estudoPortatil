@@ -1,8 +1,9 @@
-app.controller('CorrigirRedacaoCtrl', function(WordingService, $scope, $location,  $routeParams) {
+app.controller('CorrigirRedacaoCtrl', function(WordingService, $scope, $location,  $routeParams, CONFIG) {
 
     console.log('no corrigir redacao');
     var wording_id = $routeParams.id;
     console.log(wording_id);
+    $scope.topics = CONFIG.TOPIC_INFO;
 
     WordingService.getWordingList(wording_id).then(
         function(wording){
