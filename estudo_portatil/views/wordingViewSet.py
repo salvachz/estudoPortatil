@@ -25,3 +25,11 @@ class WordingViewSet(viewsets.ModelViewSet):
         queryset = Wording.objects.filter(id=pk)
         serializer = WordingSerializer(queryset, many=True)
         return Response(serializer.data[0])
+
+    def create(self, request, format=None):
+        
+        wording = Wording.objects.create(title=request.data.get('title',''), text=request.data.get('text',''), category_id=request.data.get('category',''), written_by_id=request.user.id)
+        wording.save()
+        print 'wording',wording
+        serializer = WordingSerializer(wording, many=False)
+        return Response(serializer.data)

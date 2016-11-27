@@ -30,16 +30,16 @@
                                 {{topic}}
                             </td>
                             <td class="textarea">
-                                <textarea placeholder="Escreva aqui sua avaliação...."></textarea>
+                                <textarea ng-model="data[topic_id]" placeholder="Escreva aqui sua avaliação...."></textarea>
                             </td>
                     </tr>
                     <tr class="last">
                         <td>NOTA</td>
                         <td>
-                            <select ng-model="data.nota" name="nota">
-                                <option ng-repeat="val in [1,2,3,4,5,6,7,8,9,10]" value="val">{{val}}</option>
+                            <select ng-model="data.score" name="nota">
+                                <option ng-repeat="val in [1,2,3,4,5,6,7,8,9,10]" value="{{val}}">{{val}}</option>
                             </select>
-                            <input type="button" value="ENVIAR"></input>
+                            <input type="button" value="ENVIAR" ng-click="enviar()"></input>
                         </td>
                     </tr>
                 </table>

@@ -50,6 +50,9 @@ class UserProfile(AbstractBaseUser):
                         default='',
                     )
     name = models.CharField(db_column='uprName',max_length=90, blank=False, default='')
+    bairro = models.CharField(db_column='uprBairro',max_length=90, blank=False, default='')
+    escola = models.CharField(db_column='uprEscola',max_length=90, blank=False, default='')
+    ano_letivo = models.CharField(db_column='uprAnoLetivo',max_length=90, blank=False, default='')
     date_joined = models.DateTimeField(db_column='uprDataJoined', default=timezone.now,blank=True)
     is_active = models.BooleanField(db_column='uprIsActive', default=True)
     is_admin = models.BooleanField(db_column='uprIsAdmin', default=False)

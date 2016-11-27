@@ -1,16 +1,17 @@
 <div class="register-div">
     <div class="close" ng-click="closeRegister()">x</div>
     <div class="holder">
-        <input name="name" placeholder="Seu nome" type="text" />
-        <input name="senha" placeholder="Senha" type="password" />
-        <input name="confsenha" placeholder="Confirmar Senha" type="password" />
-        <select name="bairro">
+        <input ng-model="data.email" name="email" placeholder="Seu email" type="text" />
+        <input ng-model="data.name" name="name" placeholder="Seu nome" type="text" />
+        <input ng-model="data.passwd"  name="senha" placeholder="Senha" type="password" />
+        <input ng-model="data.conf_passwd"  name="confsenha" placeholder="Confirmar Senha" type="password" />
+        <select name="bairro" ng-model="data.bairro" >
             <option value="val" ng-repeat="val in ['santa Candida', 'Bairro Alto']">{{val}}</option>
         </select>
-        <select name="escola">
+        <select name="escola" ng-model="data.escola" >
             <option value="val" ng-repeat="val in ['So vai', 'So vem']">{{val}}</option>
         </select>
-        <select name="serie">
+        <select name="serie" ng-model="data.ano_letivo" >
             <option value="val" ng-repeat="val in [1,2,3,4,5,6,7,8,9]">{{val}} Ano</option>
         </select>
         <input type="button" value="CADASTRAR" ng-click="cadastrar()"/>

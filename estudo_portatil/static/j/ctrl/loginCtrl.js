@@ -26,4 +26,15 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
         $scope.show_register = false;
     }
 
+
+    $scope.cadastrar = function(){
+        UserService.createUser($scope.data).then(
+            function(response){
+                console.log('deu boa');
+            },
+            function(error){
+            }
+        );
+    }
+
 });

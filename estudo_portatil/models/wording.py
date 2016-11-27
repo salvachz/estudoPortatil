@@ -14,7 +14,7 @@ class Wording(models.Model):
     written_at = models.DateTimeField(db_column='worAskedDate', default=timezone.now, blank=True)
 
     def __str__(self):
-        return "%s - (%s, %s)" % (self.id, self.category.id, self.written_by.id)
+        return "(%s, %s)" % (self.category.id, self.written_by.id)
 
     class Meta:
         managed = True

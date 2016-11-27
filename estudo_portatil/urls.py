@@ -7,6 +7,8 @@ urlpatterns = [
             'document_root': 'static/','path': 'index.html'}),
     url(r'^portal/',serve, {
             'document_root': 'static/','path': 'index.html'}),
+    url(r'^portal/',serve, {
+            'document_root': 'static/','path': 'index.html'}),
     url(r'static/(?P<path>.*)$',serve, {
             'document_root': 'static/'}),
     url(r'^ws/auth/', include('rest_framework.urls', namespace='rest_framework'))

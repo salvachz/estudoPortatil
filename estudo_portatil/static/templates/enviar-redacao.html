@@ -1,9 +1,12 @@
 <div id="main">
     <div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
-    <div class="dashboard">
-        <div ng-click="go('/propostas-redacao')"class="slice1 slice"><span>Propostas de Redação.</span></div>
-        <div ng-click="go('/corrigir-redacao')"class="slice2 slice"><span>Por que não ajudar corrigindo redações? :D</span></div>
-        <div ng-click="go('/enviar-redacao')"class="slice3 slice"><span>Fez uma redação nova?</span><span class="no-nl">Envie aqui sua redação! :)</span></div>
+    <div class="addRedacao">
+        <select ng-model="data.category">
+            <option value="{{category.id}}" ng-repeat="category in categorys">{{category.name}}</option>
+        </select>
+        <input ng-model="data.title" placeholder="title" />
+        <textarea ng-model="data.text"></textarea>
+        <input type="button" value="ENVIAR" ng-click="enviar()"/>
         <div class="clear"></div>
     </div><!--.dashboard-->
 </div><!--.main-->
