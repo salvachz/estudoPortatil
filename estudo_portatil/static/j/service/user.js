@@ -17,7 +17,8 @@ app
                 })
                 .then(
                 function(response){
-                    if($cookies.get('is_logged')=='True')
+                    //if($cookies.get('is_logged')=='True')
+                    if(response.data.login)
                         that.is_loged = true;
                 q.resolve(response.data);
                 },

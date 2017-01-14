@@ -2,14 +2,17 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
 
     $scope.data = {};
     $scope.show_register = false;
+    $scope.error = {msg:false}
 
     $scope.login = function(){
         UserService.login($scope.data).then(
             function(result){
                 if(UserService.is_loged)
                     $location.path('/dashboard');
-                else
+                else{
                     console.log('deu ruim');
+                    $scope.error.msg = result.msg;
+                }
             },
             function(error){
                 console.log('error '+error);

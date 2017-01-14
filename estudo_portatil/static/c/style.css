@@ -122,10 +122,22 @@ body{
     margin-right:8%;
 }
 
+#loginCtrl .bar .login-msg{
+    width:80%;
+    height:2vw;
+    background:#F00;
+    margin:auto;
+    margin-top:33%;
+    border-radius:0.2em;
+    color: #FFF;
+    padding:0 0.5vw;
+    line-height:2vw;
+}
+
 #loginCtrl .bar .login-tab{
     width:80%;
     margin:auto;
-    margin-top:40%;
+    margin-top:2%;
 }
 
 #loginCtrl .bar .login-tab table{

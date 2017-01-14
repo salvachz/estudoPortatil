@@ -29,7 +29,7 @@ DEBUG = True
 #    os.path.join(BASE_DIR, "estudo_portatil", "static"),
 #)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
