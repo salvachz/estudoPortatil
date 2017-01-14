@@ -4,7 +4,10 @@ from hack import settings
 from estudo_portatil import views
 
 urlpatterns = [
-    url('auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^auth/$', views.LoginViewSet.as_view({
+        'get': 'get',
+        'post': 'login'
+    })),
     url(r'^category/', views.CategoryViewSet.as_view({
         'get':'list'
     })),

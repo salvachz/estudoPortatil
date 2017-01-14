@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^portal/', include('estudo_portatil.urls')),
     url(r'^ws/', include('estudo_portatil.ws_urls')),
-    url(r'^accounts/profile/',views.LoginView.as_view())
 ]
 

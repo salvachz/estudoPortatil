@@ -7,7 +7,7 @@ app
         login: function(data){
             var q = $q.defer();
             $http({
-                    url: CONFIG.WS_URL+'/auth/login/',
+                    url: CONFIG.WS_URL+'/auth/',
                     method: "POST",
                     data: $httpParamSerializer(data),
                     //data: data,
