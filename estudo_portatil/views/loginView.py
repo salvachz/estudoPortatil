@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.decorators import permission_classes
 from rest_framework.response import Response
-from rest_framework import authentication, permissions, viewsets
+from rest_framework import authentication, permissions
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
@@ -10,14 +10,14 @@ from django.contrib.auth import authenticate, login
 
 from estudo_portatil.models import UserProfile
 
-class LoginViewSet(viewsets.ModelViewSet):
+class LoginView(APIView):
 
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     permission_classes = (permissions.AllowAny,)
 
     queryset = UserProfile.objects.all()
 
-    def login(self, request, format=None):
+    def post(self, request, format=None):
         print dir(request)
         if request.user.is_authenticated():
             return Response({'msg':['Already logged']}, status=200)

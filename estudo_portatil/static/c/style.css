@@ -141,7 +141,7 @@ body{
     font-size: 1.5vw;
 }
 
-#loginCtrl .bar .login-tab table tr td input[type=button]{
+#loginCtrl .bar .login-tab table tr td button{
     width: 9vw;
     height: 2.5vw;
     background: #a0c7ce;
