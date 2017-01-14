@@ -144,6 +144,17 @@ body{
     color: #FFF;
 }
 
+#loginCtrl .bar .fb{
+    width:50%;
+    margin:auto;
+    margin-top:2vw;
+    cursor:pointer;
+}
+#loginCtrl .bar .fb img{
+    display:block;
+    width:100%;
+}
+
 #loginCtrl .bar .login-tab{
     width:80%;
     margin:auto;
@@ -167,9 +178,11 @@ body{
     width: 9vw;
     height: 2.5vw;
     background: #a0c7ce;
-    float: right;
     border-radius: 0.5vw;
     color: #FFF;
+    margin:auto;
+    display:block;
+    margin-top:0.5vw;
 
 }
 #loginCtrl .bar .register span{
@@ -208,13 +221,36 @@ body{
     float:left;
 }
 #dash-header .right{
-    margin-right:2vw;
-    margin-top:1vw;
+    position:relative;
+    float:right;
+    width:10vw;
+}
+
+#dash-header .right .img{
+    right:3vw;
+    top:1vw;
+    position:absolute;
     width:5vw;
     height:5vw;
     border-radius:2.5vw;
     background:#000;
-    float:right;
+}
+
+#dash-header .right .menu{
+    position:absolute;
+    top:6vw;
+    background:#e2e2e2;
+    width:9vw;
+    display:none;
+}
+#dash-header .right .menu li{
+    padding:0.5vw 0;
+    text-align:center;
+    list-style:none;
+}   
+
+#dash-header .right:hover > .menu{
+    display:block;
 }
 
 /* Main */

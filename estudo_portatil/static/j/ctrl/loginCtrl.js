@@ -4,6 +4,10 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
     $scope.show_register = false;
     $scope.error = {msg:false}
 
+    //If is already logged
+    if(UserService.is_loged)
+        $location.path('/dashboard');
+
     $scope.login = function(){
         UserService.login($scope.data).then(
             function(result){
@@ -19,6 +23,22 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
             }
         );
         
+    }
+
+    $scope.fbLogin = function(){
+        FB.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                var access_token =   FB.getAuthResponse()['accessToken'];
+                $scope.data.fb_token = access_token;
+                $scope.login();
+             /*FB.api('/me', function(response) {
+               console.log('Good to see you, ' + response.name + '.');
+             });*/
+            } else {
+             console.log('User cancelled login or did not fully authorize.');
+            }
+        });
     }
 
     $scope.showRegister = function(){

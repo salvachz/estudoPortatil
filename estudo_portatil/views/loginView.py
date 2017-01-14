@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions
@@ -25,13 +26,13 @@ class LoginView(APIView):
         profile = authenticate(username=username, password=password)
 
         if profile is None:
-            return Response({'login':False, 'msg':'user not found'}, status=200)
+            return Response({'login':False, 'msg':'email/senha não encontrados!'}, status=200)
 
         login(request, profile)
-        return Response({'login':True, 'msg':'success loged'}, status=200)
+        return Response({'login':True, 'msg':'logado com sucesso'}, status=200)
 
 
     def get(self, request, format=None):
-        if not request.user:
-            return Response({'login':True, 'msg':'wrong user/pass'}, status=200)
-        return Response({'login':True, 'msg':'Already logged'}, status=200)
+        if not request.user.is_authenticated():
+            return Response({'login':False, 'msg':'Not Logged In'}, status=200)
+        return Response({'login':True, 'msg':'Already Logged'}, status=200)
