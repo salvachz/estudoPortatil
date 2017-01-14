@@ -1,11 +1,17 @@
-@font-face{font-family:"Corbel W10 Regular";src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4");src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#iefix") format("embedded-opentype"),url("//fast.fonts.net/dv2/14/13ec8856-536a-4412-803c-83cb09c51b73.woff2?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff2"),url("//fast.fonts.net/dv2/3/ba9270be-99b8-456a-89dc-102d94a40672.woff?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff"),url("//fast.fonts.net/dv2/1/bf4356f0-7fa2-4d6b-b5c4-213376596488.ttf?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("truetype"),url("//fast.fonts.net/dv2/11/3047dd87-5f41-44cb-8ae8-37e3fa0e3502.svg?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#3047dd87-5f41-44cb-8ae8-37e3fa0e3502") format("svg");}
+@font-face{font-family:"Corbel";src:
+url("/static/f/corbel1.eot");src:
+url("/static/f/corbel1.woff2") format("embedded-opentype"),
+url("/static/f/corbel2.woff2") format("woff2"),
+url("/static/f/corbel1.woff") format("woff"),
+url("/static/f/corbel1.ttf") format("truetype"),
+url("/static/f/corbel1.svg") format("svg");}
 
 * {
 
     margin:0;
     padding:0;
     border:0;
-    font-family:  'Corbel W10 Regular';
+    font-family:  'Corbel';
 }
 
 .clear{
@@ -125,13 +131,17 @@ body{
 #loginCtrl .bar .login-msg{
     width:80%;
     height:2vw;
-    background:#F00;
     margin:auto;
     margin-top:33%;
-    border-radius:0.2em;
-    color: #FFF;
+}
+
+#loginCtrl .bar .login-msg span{
     padding:0 0.5vw;
     line-height:2vw;
+    display:block;
+    background:#F00;
+    border-radius:0.2em;
+    color: #FFF;
 }
 
 #loginCtrl .bar .login-tab{
