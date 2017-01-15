@@ -43,7 +43,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 
 }])
 .constant('CONFIG', {
-    'WS_URL' : 'http://www.lyra.com.br/ws',
+    'WS_URL' : 'http://localhost:8000/ws',
     "TOPIC_INFO": {
         '1': "Domínio da norma padrão da língua.",
         '2': "Compreensão da proposta.",

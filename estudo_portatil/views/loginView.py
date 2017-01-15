@@ -29,6 +29,7 @@ class LoginView(APIView):
 
         #profile account by facebook
         if fb_token:
+            has_email = True
             facebookToken = FacebookToken(fb_token)
             if not facebookToken.is_valid():
                 return Response({'login':False, 'msg':'fb_token invalido'},status=403)
@@ -45,9 +46,18 @@ class LoginView(APIView):
                 userSerialized = UserProfileSerializer(user, data={'image':image}, partial=True)
                 if userSerialized.is_valid():
                     userSerialized.save()
+            if not user.email:
+                user.email = '%s@facebook.com' % data['id']
+                user.set_password('0496874809')
+                has_email = False
             user.save()
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            login(request, user)
+            profile = authenticate(username=user.email, password='0496874809')
+            login(request, profile)
+            if not has_email:
+                user.email = ''
+                user.set_password(None)
+                user.save()
+
             return Response({'login':True, 'msg':'logado FB com sucesso'}, status=200)
 
         #profile account by Lyra

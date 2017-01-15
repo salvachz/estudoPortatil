@@ -10,7 +10,7 @@ from estudo_portatil.serializers import UserProfileSerializer
 class UserProfileView(APIView):
 
     authentication_classes = (SessionAuthentication, BasicAuthentication)
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.AllowAny,)
 
     queryset = UserProfile.objects.all()
 

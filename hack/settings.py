@@ -136,11 +136,15 @@ STATIC_URL = '/static/'
 #if not DEBUG:
 #    STATIC_ROOT = 'static/'
 
-AUTH_PROFILE_MODULE = 'estudo_portatil.UserProfile'
+#AUTH_PROFILE_MODULE = 'estudo_portatil.UserProfile'
+AUTH_USER_MODEL = 'estudo_portatil.UserProfile'
 
 FB_APP_ID = 1861177677431577
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',

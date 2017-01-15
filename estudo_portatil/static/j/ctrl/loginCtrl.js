@@ -1,6 +1,6 @@
 app.controller('LoginCtrl', function(UserService, $scope, $location) {
 
-    $scope.data = {};
+    $scope.data = {image:null};
     $scope.show_register = false;
     $scope.error = {msg:false}
 
