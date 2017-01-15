@@ -11,7 +11,7 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
     $scope.login = function(){
         UserService.login($scope.data).then(
             function(result){
-                if(UserService.is_loged)
+                if(result.login)
                     $location.path('/dashboard');
                 else{
                     console.log('deu ruim');

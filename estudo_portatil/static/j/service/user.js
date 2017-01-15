@@ -2,16 +2,7 @@ app
 .service('UserService', function(CONFIG, $q, $http, $httpParamSerializer, $cookies,$window){
     var that = {
 
-        is_loged: false,
-        fb_token: false,
-
-        fbAuthChange: function(data){
-            console.log('dentro da');
-        },
-
         login: function(data){
-            if(data.fb_token)
-                $window.localStorage.setItem('fb_token',data.fb_token);
             var q = $q.defer();
             $http({
                     url: CONFIG.WS_URL+'/auth/',
@@ -24,11 +15,7 @@ app
                 })
                 .then(
                 function(response){
-                    if(response.data.login){
-                        $cookies.put('logged', 'True');
-                        that.is_loged = true;
-                    }
-                q.resolve(response.data);
+                    q.resolve(response.data);
                 },
                 function(error){
                     console.log('error on login HTTP',JSON.stringify(error));
@@ -40,21 +27,34 @@ app
         },
 
         logout: function(){
+            FB.getLoginStatus(function(response){
+                if (response && response.status === 'connected') {
+                    console.log('aqui no token log')
+                    FB.logout(function(response){
+                        console.log('deslogou..')
+                        console.log(response)
+                        return that.__logout();
+                    });
+                }
+            })
+            return that.__logout();
+        },
+
+        __logout: function(){
             var q = $q.defer();
-            if(that.fb_token){
-                console.log('aqui no token log')
-                FB.logout(function(response){
-                    $window.localStorage.deleteItem('fb_token')
-                    console.log('deslogou..')
-                    console.log(response)
-                    that.fb_token = false;
-                    that.is_loged = false;
-                    q.resolve(response);
-                },
-                function(response){
-                    console.log('deu ruim..')
+            $http({
+                    url: CONFIG.WS_URL+'/auth/',
+                    method: "DELETE",
                 })
-            }
+                .then(
+                function(response){
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on __logout HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
             return q.promise
         },
 
@@ -82,8 +82,5 @@ app
 
         },
     }
-    if($cookies.get('logged')=='True')
-        that.is_loged = true;
-    that.fb_token = $window.localStorage.getItem('fb_token',false);
     return that;
 });

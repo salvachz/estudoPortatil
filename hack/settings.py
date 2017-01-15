@@ -131,11 +131,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+
 STATIC_URL = '/static/'
 #if not DEBUG:
 #    STATIC_ROOT = 'static/'
 
 AUTH_PROFILE_MODULE = 'estudo_portatil.UserProfile'
+
+FB_APP_ID = 1861177677431577
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

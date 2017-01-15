@@ -38,6 +38,9 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
     })
   .otherwise({redirectTo : '/login'});
 
+  //for 403 forbidden errors
+  $httpProvider.interceptors.push('LoggedObserver');
+
 }])
 .constant('CONFIG', {
     'WS_URL' : 'http://www.lyra.com.br/ws',
