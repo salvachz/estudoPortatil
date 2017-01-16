@@ -1,6 +1,7 @@
 'use strict';
  
 var app = angular.module('app', ['ngRoute', 'ngCookies']);
+var HOST = 'http://192.168.0.221:8000'
  
 // Declared route 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
@@ -43,7 +44,8 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
 
 }])
 .constant('CONFIG', {
-    'WS_URL' : 'http://localhost:8000/ws',
+    'HOST' : HOST,
+    'WS_URL' : HOST+'/ws',
     "TOPIC_INFO": {
         '1': "Domínio da norma padrão da língua.",
         '2': "Compreensão da proposta.",

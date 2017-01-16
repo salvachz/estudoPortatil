@@ -1,7 +1,9 @@
     <div class="left">
     </div>
     <div class="right" ng-controller="RightMenuCtrl">
-        <div class="img"></div>
+        <div class="img">
+            <img ng-src="{{usr.image}}" />
+        </div>
         <ul class="menu">
             <li><a href="#" ng-click="logout()">Sair</a></li>
         </ul>

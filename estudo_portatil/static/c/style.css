@@ -236,6 +236,11 @@ body{
     background:#000;
 }
 
+#dash-header .right .img img{
+    width:100%;
+    border-radius:2.5vw;
+}
+
 #dash-header .right .menu{
     position:absolute;
     top:6vw;

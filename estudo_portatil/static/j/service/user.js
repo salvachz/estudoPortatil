@@ -26,6 +26,28 @@ app
 
         },
 
+        me: function(){
+            var q = $q.defer();
+            $http({
+                    url: CONFIG.WS_URL+'/me/',
+                    method: "GET",
+                })
+                .then(
+                function(response){
+                    var data = response.data;
+                    if(data.image)
+                        data.image = CONFIG.HOST+'/static/'+data.image;
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on me HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
+
         logout: function(){
             FB.getLoginStatus(function(response){
                 if (response && response.status === 'connected') {
