@@ -1,27 +1,27 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import authentication, permissions
+from rest_framework import authentication, permissions, viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.utils import timezone
 from estudo_portatil.models import UserProfile
 from estudo_portatil.serializers import UserProfileSerializer
 
-class UserProfileView(APIView):
+class UserProfileViewSet(viewsets.ModelViewSet):
 
     authentication_classes = (SessionAuthentication, BasicAuthentication)
     permission_classes = (permissions.AllowAny,)
 
     queryset = UserProfile.objects.all()
 
-    def get(self, request, format=None):
-        if not request.user:
-            return Response({'errors':['empty data']}, status=404)
+    def me(self, request, format=None):
+        if not request.user.is_authenticated():
+            return Response({'errors':['empty data']}, status=403)
 
         userProfileSerialized = UserProfileSerializer(request.user)
         return Response(userProfileSerialized.data)
 
-    def post(self, request, format=None):
+    def create(self, request, format=None):
         data = request.data
         userProfileSerialized = UserProfileSerializer(data)
         errors = []

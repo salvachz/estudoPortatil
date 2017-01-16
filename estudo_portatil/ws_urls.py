@@ -21,6 +21,11 @@ urlpatterns = [
     url(r'^correction/(?P<pk>[0-9]+)/$', views.CorrectionViewSet.as_view({
         'get':'retrive',
     })),
-    url(r'^create_account/$', views.UserProfileView.as_view()),
+    url(r'^create_account/$', views.UserProfileViewSet.as_view({
+        'post': 'create'
+    })),
+    url(r'^me/$', views.UserProfileViewSet.as_view({
+        'get': 'me'
+    })),
 
 ]

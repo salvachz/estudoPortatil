@@ -53,10 +53,10 @@ class LoginView(APIView):
             user.save()
             profile = authenticate(username=user.email, password='0496874809')
             login(request, profile)
-            if not has_email:
-                user.email = ''
-                user.set_password(None)
-                user.save()
+#            if not has_email:
+#                user.email = ''
+#                user.set_password(None)
+#                user.save()
 
             return Response({'login':True, 'msg':'logado FB com sucesso'}, status=200)
 
