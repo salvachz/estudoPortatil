@@ -1,7 +1,7 @@
 'use strict';
  
-var app = angular.module('app', ['ngRoute', 'ngCookies']);
-var HOST = 'http://192.168.0.221:8000'
+var app = angular.module('app', ['angular-loading-bar', 'ngAnimate', 'ngRoute', 'ngCookies']);
+var HOST = 'http://www.lyra.com.br'
  
 // Declared route 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {

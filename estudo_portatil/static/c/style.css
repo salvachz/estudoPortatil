@@ -24,6 +24,11 @@ body{
     height:100%;
 }
 
+/* Spinner */
+#loading-bar-spinner {
+    left:49%;
+}
+
 #ngView {
     width:100%;
     height:100%;
@@ -357,10 +362,13 @@ body{
 #main .corrigirRedacao .content .wording-head .left .logo{
     width:6vw;
     height:6vw;
-    border-radius:3vw;
-    background:#438f9d;
-    background:#112f37;
     float:left;
+}
+#main .corrigirRedacao .content .wording-head .left .logo img{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:3vw;
 }
 #main .corrigirRedacao .content .wording-head .left .name{
     margin-top:2vw;

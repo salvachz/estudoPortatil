@@ -25,7 +25,10 @@ app
             $http.get(CONFIG.WS_URL+'/wording/'+id+'/')
                 .then(
                 function(response){
-                    q.resolve(response.data);
+                    var data = response.data;
+                    if(data.written_by.image)
+                        data.written_by.image = CONFIG.HOST+'/static/'+data.written_by.image;
+                    q.resolve(data);
                 },
                 function(error){
                     console.log('error on getWording ID '+id+' HTTP',JSON.stringify(error));
