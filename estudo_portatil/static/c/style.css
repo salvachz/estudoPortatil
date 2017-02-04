@@ -58,6 +58,31 @@ body{
     color:#95bcc4;
     text-align:center;
     line-height:2vw;
+    cursor:pointer;
+}
+#register .register-div .msgs{
+    top:3vw;
+    position:relative;
+    height:5vw;
+}
+#register .register-div .msgs ul{
+    margin:auto;
+    width:80%;
+}
+#register .register-div .msgs ul li{
+    list-style: none;
+    background: #F00;
+    margin: auto;
+    padding: 0.1vw;
+    margin-top: 0.1vw;
+    border-radius: 0.5vw;
+    color: #FFF;
+    padding-left: 1vw;
+}
+#register .register-div .msgs .created{
+    background:#0F0;
+    color:#FFF;
+    text-align:center;
 }
 #register .register-div .holder{
     top:10vw;
@@ -65,7 +90,7 @@ body{
 }
 #register .register-div input{
     width: 80%;
-    margin:auto;
+    margin-left:10%;
     display:block;
     height: 3vw;
     margin-bottom:1vw;
@@ -180,6 +205,7 @@ body{
 }
 
 #loginCtrl .bar .login-tab table tr td button{
+    cursor:pointer;
     width: 9vw;
     height: 2.5vw;
     background: #a0c7ce;
@@ -200,6 +226,7 @@ body{
 }
 
 #loginCtrl .bar .register input{
+    cursor:pointer;
     width:60%;
     height:4vw;
     display:block;

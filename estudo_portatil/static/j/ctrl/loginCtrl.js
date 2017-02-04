@@ -2,7 +2,9 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
 
     $scope.data = {image:null};
     $scope.show_register = false;
-    $scope.error = {msg:false}
+    $scope.error = {msg:false};
+    $scope.register_error = {msg:false};
+    $scope.created = {success:false};
 
     //If is already logged
     if(UserService.is_loged)
@@ -53,9 +55,11 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
     $scope.cadastrar = function(){
         UserService.createUser($scope.data).then(
             function(response){
-                console.log('deu boa');
+                $scope.created.success = true;
+                $location.path('/dashboard');
             },
             function(error){
+                $scope.register_error.data = error.data.errors;
             }
         );
     }
