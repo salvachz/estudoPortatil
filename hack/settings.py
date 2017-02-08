@@ -29,7 +29,7 @@ DEBUG = True
 #    os.path.join(BASE_DIR, "estudo_portatil", "static"),
 #)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['resumoportatil.com.br']
 
 
 # Application definition
@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'hack.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hack',
-        'USER': 'hack',
-        'PASSWORD': 'h4ck',
+        'NAME': 'lyra',
+        'USER': 'lyra',
+        'PASSWORD': 'lyra',
         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
