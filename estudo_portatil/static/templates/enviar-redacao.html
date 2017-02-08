@@ -1,8 +1,8 @@
 <div id="main">
     <div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
     <div class="addRedacao">
-        <select ng-model="data.category">
-            <option value="{{category.id}}" ng-repeat="category in categorys">{{category.name}}</option>
+        <select ng-model="data.category" ng-options="cat.id as cat.name for cat in categorys">
+            <option value="" disabled="true" selected="true">Selecione</option>
         </select>
         <input ng-model="data.title" placeholder="title" />
         <textarea ng-model="data.text"></textarea>

@@ -27,8 +27,25 @@ class WordingViewSet(viewsets.ModelViewSet):
         return Response(serializer.data[0])
 
     def create(self, request, format=None):
+        data = {}
+        errors = []
+        data['title'] = request.data.get('title','')
+        data['text'] = request.data.get('text','')
+        data['category_id'] = request.data.get('category','')
+        for k in data:
+            if not data[k]:
+                errors.append('%s em branco' % k)
+        if errors:
+            return Response({'errors':errors}, status=404)
+        if not data['category_id'].isdigit():
+                errors.append('Categoria invalida')
         
-        wording = Wording.objects.create(title=request.data.get('title',''), text=request.data.get('text',''), category_id=request.data.get('category',''), written_by_id=request.user.id)
+        wording = Wording.objects.create(
+            title=data['title'],
+            text=data['text'],
+            category_id=data['category_id'],
+            written_by_id=request.user.id
+        )
         wording.save()
         print 'wording',wording
         serializer = WordingSerializer(wording, many=False)
