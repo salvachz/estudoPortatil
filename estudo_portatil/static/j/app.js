@@ -1,6 +1,7 @@
 'use strict';
  
-var app = angular.module('app', ['ngRoute', 'ngCookies']);
+var app = angular.module('app', ['angular-loading-bar', 'ngAnimate', 'ngRoute', 'ngCookies']);
+var HOST = 'http://resumoportatil.com.br'
  
 // Declared route 
 app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
@@ -38,9 +39,13 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
     })
   .otherwise({redirectTo : '/login'});
 
+  //for 403 forbidden errors
+  $httpProvider.interceptors.push('LoggedObserver');
+
 }])
 .constant('CONFIG', {
-    'WS_URL' : 'http://localhost:8000/ws',
+    'HOST' : HOST,
+    'WS_URL' : HOST+'/ws',
     "TOPIC_INFO": {
         '1': "Domínio da norma padrão da língua.",
         '2': "Compreensão da proposta.",
@@ -49,4 +54,17 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         '5': "Elaboração de uma proposta de solução para os problemas abordados, respeitando os valores e considerando as diversidades socioculturais.",
         '6': "Comentários adicionais (opcional)",
     }
+})
+.run(function($window, UserService){
+    $window.fbAsyncInit = function() {
+        FB.init({ 
+          appId: '1861177677431577',
+          status: true, 
+          cookie: true, 
+          xfbml: true,
+          version: 'v2.4'
+        });
+    };
+
+    //FB.Event.subscribe('auth.authResponseChange', UserService.fbAuthChange);
 });

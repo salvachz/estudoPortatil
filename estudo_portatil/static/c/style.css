@@ -1,11 +1,17 @@
-@font-face{font-family:"Corbel W10 Regular";src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4");src:url("//fast.fonts.net/dv2/2/53b52e8e-8a0e-429a-bde6-a51cd926f9a7.eot?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#iefix") format("embedded-opentype"),url("//fast.fonts.net/dv2/14/13ec8856-536a-4412-803c-83cb09c51b73.woff2?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff2"),url("//fast.fonts.net/dv2/3/ba9270be-99b8-456a-89dc-102d94a40672.woff?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("woff"),url("//fast.fonts.net/dv2/1/bf4356f0-7fa2-4d6b-b5c4-213376596488.ttf?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4") format("truetype"),url("//fast.fonts.net/dv2/11/3047dd87-5f41-44cb-8ae8-37e3fa0e3502.svg?d44f19a684109620e484147fa790e81859e92aaaea3d337f84586d5df8888fe5455f55e0f83ed0be044ddfaa95e824a4b1318d5b552aaa24a44025e9&projectid=74f39a9d-a5dc-405f-9690-1c1fd4590ae4#3047dd87-5f41-44cb-8ae8-37e3fa0e3502") format("svg");}
+@font-face{font-family:"Corbel";src:
+url("/static/f/corbel1.eot");src:
+url("/static/f/corbel1.woff2") format("embedded-opentype"),
+url("/static/f/corbel2.woff2") format("woff2"),
+url("/static/f/corbel1.woff") format("woff"),
+url("/static/f/corbel1.ttf") format("truetype"),
+url("/static/f/corbel1.svg") format("svg");}
 
 * {
 
     margin:0;
     padding:0;
     border:0;
-    font-family:  'Corbel W10 Regular';
+    font-family:  'Corbel';
 }
 
 .clear{
@@ -16,6 +22,11 @@ body{
     position:absolute;
     width:100%;
     height:100%;
+}
+
+/* Spinner */
+#loading-bar-spinner {
+    left:49%;
 }
 
 #ngView {
@@ -47,6 +58,31 @@ body{
     color:#95bcc4;
     text-align:center;
     line-height:2vw;
+    cursor:pointer;
+}
+#register .register-div .msgs{
+    top:3vw;
+    position:relative;
+    height:5vw;
+}
+#register .register-div .msgs ul{
+    margin:auto;
+    width:80%;
+}
+#register .register-div .msgs ul li{
+    list-style: none;
+    background: #F00;
+    margin: auto;
+    padding: 0.1vw;
+    margin-top: 0.1vw;
+    border-radius: 0.5vw;
+    color: #FFF;
+    padding-left: 1vw;
+}
+#register .register-div .msgs .created{
+    background:#0F0;
+    color:#FFF;
+    text-align:center;
 }
 #register .register-div .holder{
     top:10vw;
@@ -54,7 +90,7 @@ body{
 }
 #register .register-div input{
     width: 80%;
-    margin:auto;
+    margin-left:10%;
     display:block;
     height: 3vw;
     margin-bottom:1vw;
@@ -122,10 +158,37 @@ body{
     margin-right:8%;
 }
 
+#loginCtrl .bar .login-msg{
+    width:80%;
+    height:2vw;
+    margin:auto;
+    margin-top:33%;
+}
+
+#loginCtrl .bar .login-msg span{
+    padding:0 0.5vw;
+    line-height:2vw;
+    display:block;
+    background:#F00;
+    border-radius:0.2em;
+    color: #FFF;
+}
+
+#loginCtrl .bar .fb{
+    width:50%;
+    margin:auto;
+    margin-top:2vw;
+    cursor:pointer;
+}
+#loginCtrl .bar .fb img{
+    display:block;
+    width:100%;
+}
+
 #loginCtrl .bar .login-tab{
     width:80%;
     margin:auto;
-    margin-top:40%;
+    margin-top:2%;
 }
 
 #loginCtrl .bar .login-tab table{
@@ -141,13 +204,16 @@ body{
     font-size: 1.5vw;
 }
 
-#loginCtrl .bar .login-tab table tr td input[type=button]{
+#loginCtrl .bar .login-tab table tr td button{
+    cursor:pointer;
     width: 9vw;
     height: 2.5vw;
     background: #a0c7ce;
-    float: right;
     border-radius: 0.5vw;
     color: #FFF;
+    margin:auto;
+    display:block;
+    margin-top:0.5vw;
 
 }
 #loginCtrl .bar .register span{
@@ -160,6 +226,7 @@ body{
 }
 
 #loginCtrl .bar .register input{
+    cursor:pointer;
     width:60%;
     height:4vw;
     display:block;
@@ -186,13 +253,41 @@ body{
     float:left;
 }
 #dash-header .right{
-    margin-right:2vw;
-    margin-top:1vw;
+    position:relative;
+    float:right;
+    width:10vw;
+}
+
+#dash-header .right .img{
+    right:3vw;
+    top:1vw;
+    position:absolute;
     width:5vw;
     height:5vw;
     border-radius:2.5vw;
     background:#000;
-    float:right;
+}
+
+#dash-header .right .img img{
+    width:100%;
+    border-radius:2.5vw;
+}
+
+#dash-header .right .menu{
+    position:absolute;
+    top:6vw;
+    background:#e2e2e2;
+    width:9vw;
+    display:none;
+}
+#dash-header .right .menu li{
+    padding:0.5vw 0;
+    text-align:center;
+    list-style:none;
+}   
+
+#dash-header .right:hover > .menu{
+    display:block;
 }
 
 /* Main */
@@ -294,10 +389,13 @@ body{
 #main .corrigirRedacao .content .wording-head .left .logo{
     width:6vw;
     height:6vw;
-    border-radius:3vw;
-    background:#438f9d;
-    background:#112f37;
     float:left;
+}
+#main .corrigirRedacao .content .wording-head .left .logo img{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:3vw;
 }
 #main .corrigirRedacao .content .wording-head .left .name{
     margin-top:2vw;

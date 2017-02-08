@@ -56,6 +56,7 @@ class UserProfile(AbstractBaseUser):
     date_joined = models.DateTimeField(db_column='uprDataJoined', default=timezone.now,blank=True)
     is_active = models.BooleanField(db_column='uprIsActive', default=True)
     is_admin = models.BooleanField(db_column='uprIsAdmin', default=False)
+    facebook_id = models.BigIntegerField(db_column='uprFbIf', default=False)
 
     login_with = models.CharField(db_column='useLoginWith', max_length=11, blank=True, null=True)
     image = models.ImageField(upload_to='user-img', db_column='uprImgSrc', blank=True, null=True)

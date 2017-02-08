@@ -8,6 +8,9 @@
         <h3>CONHECIMENTO COMPARTILHADO</h3>
     </div>
     <div class="bar">
+        <div class="login-msg">
+            <span ng-show="error.msg">{{error.msg}}</span>
+        </div>
         <div class="login-tab">
             <span>LOGIN</span>
             <form>
@@ -24,12 +27,16 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="button" value="ENTRAR" ng-click="login()"/>
+                            <button type="submit" ng-click="login()">ENTRAR</button>
                         </td>
                     </tr>
                 </table>
             </form>
         </div><!--.login-tab-->
+
+        <div class="fb" ng-click="fbLogin()">
+            <img src="/static/i/fb-login-bar.png" />
+        </div>
 
         <div class="register">
             <span>É novo aqui? :o</span>

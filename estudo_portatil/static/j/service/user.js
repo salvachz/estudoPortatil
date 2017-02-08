@@ -1,13 +1,11 @@
 app
-.service('UserService', function(CONFIG, $q, $http, $httpParamSerializer, $cookies){
+.service('UserService', function(CONFIG, $q, $http, $httpParamSerializer, $cookies,$window){
     var that = {
-
-        is_loged: false,
 
         login: function(data){
             var q = $q.defer();
             $http({
-                    url: CONFIG.WS_URL+'/auth/login/',
+                    url: CONFIG.WS_URL+'/auth/',
                     method: "POST",
                     data: $httpParamSerializer(data),
                     //data: data,
@@ -17,9 +15,7 @@ app
                 })
                 .then(
                 function(response){
-                    if($cookies.get('is_logged')=='True')
-                        that.is_loged = true;
-                q.resolve(response.data);
+                    q.resolve(response.data);
                 },
                 function(error){
                     console.log('error on login HTTP',JSON.stringify(error));
@@ -28,6 +24,60 @@ app
             );
             return q.promise
 
+        },
+
+        me: function(){
+            var q = $q.defer();
+            $http({
+                    url: CONFIG.WS_URL+'/me/',
+                    method: "GET",
+                })
+                .then(
+                function(response){
+                    var data = response.data;
+                    if(data.image)
+                        data.image = CONFIG.HOST+'/static/'+data.image;
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on me HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
+
+        logout: function(){
+            FB.getLoginStatus(function(response){
+                if (response && response.status === 'connected') {
+                    console.log('aqui no token log')
+                    FB.logout(function(response){
+                        console.log('deslogou..')
+                        console.log(response)
+                        return that.__logout();
+                    });
+                }
+            })
+            return that.__logout();
+        },
+
+        __logout: function(){
+            var q = $q.defer();
+            $http({
+                    url: CONFIG.WS_URL+'/auth/',
+                    method: "DELETE",
+                })
+                .then(
+                function(response){
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on __logout HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
         },
 
         createUser: function(data){
@@ -54,7 +104,5 @@ app
 
         },
     }
-    if($cookies.get('is_logged')=='True')
-        that.is_loged = true;
     return that;
 });
