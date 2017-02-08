@@ -36,7 +36,7 @@ app
                 function(response){
                     var data = response.data;
                     if(data.image)
-                        data.image = CONFIG.HOST+'/static/'+data.image;
+                        data.image = CONFIG.HOST+'/lyra/'+data.image;
                     q.resolve(response.data);
                 },
                 function(error){
