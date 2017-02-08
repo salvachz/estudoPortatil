@@ -1,0 +1,39 @@
+#!/bin/bash
+
+NAME="lyra"                                    # Name of the application
+if [ $1 == "PROD" ]
+then
+    DJANGODIR=/webdocs/lyra/       # Django project directory
+    SOCKFILE=/tmp/prod-lyra.sock		  # we will communicte using this unix socket
+    LOGFILE=/var/log/prod-lyra.log
+else
+    DJANGODIR=/webdocs/dev/lyra/       # Django project directory
+    SOCKFILE=/tmp/dev-lyra.sock		  # we will communicte using this unix socket
+    LOGFILE=/var/log/dev-lyra.log
+fi
+USER=salvachz                                     # the user to run as
+GROUP=www-data                                    # the group to run as
+NUM_WORKERS=5                                     # how many worker processes should Gunicorn spawn
+DJANGO_SETTINGS_MODULE=hack.settings          # which settings file should Django use
+DJANGO_WSGI_MODULE=hack.wsgi                  # WSGI module name
+
+echo "Starting $NAME as `whoami`"
+
+# Activate the virtual environment
+cd $DJANGODIR
+#source ../bin/activate
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+
+# Create the run directory if it doesn't exist
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start your Django Unicorn
+# Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
+exec /usr/local/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $NUM_WORKERS \
+  --bind=unix:$SOCKFILE \
+  --log-level=error \
+  --log-file=$LOGFILE
