@@ -1,4 +1,5 @@
 static
+estudo_portatil/migrations
 *.pyc
 estudo_portatil/*.pyc
 estudo_portatil/models/*.pyc
