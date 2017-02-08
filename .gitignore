@@ -1,3 +1,5 @@
-static/*
-estudo_portatil/*/*.pyc
+static
+*.pyc
+estudo_portatil/*.pyc
+estudo_portatil/models/*.pyc
 user-img/*
