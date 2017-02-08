@@ -19,7 +19,7 @@ from django.contrib import admin
 from estudo_portatil import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^lyra/admin/', admin.site.urls),
     url(r'^lyra/', include('estudo_portatil.urls')),
 ]
 
