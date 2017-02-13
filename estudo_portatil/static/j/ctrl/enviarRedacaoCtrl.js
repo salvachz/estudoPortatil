@@ -22,7 +22,11 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
     }
 
     $scope.enviar = function(){
-        WordingService.sendWording($scope.data).then(
+            var n_data = {};
+            n_data.category = $scope.data.category;
+            n_data.title = $scope.data.title;
+            n_data.text = btoa($scope.data.text);
+        WordingService.sendWording(n_data).then(
             function(response){
                 alert('aqui deveria ter uma tela de sucesso! pq deu boa o/');
             },

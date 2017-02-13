@@ -11,6 +11,7 @@ app.controller('CorrigirRedacaoCtrl', function(WordingService, CorrectionService
 
     WordingService.getWording(wording_id).then(
         function(wording){
+            wording.text = atob(wording.text);
             $scope.wording = wording;
             CorrectionService.getCorrectionItemList(wording_id).then(
                 function(data){ 

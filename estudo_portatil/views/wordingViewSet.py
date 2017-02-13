@@ -47,6 +47,5 @@ class WordingViewSet(viewsets.ModelViewSet):
             written_by_id=request.user.id
         )
         wording.save()
-        print 'wording',wording
         serializer = WordingSerializer(wording, many=False)
         return Response(serializer.data)
