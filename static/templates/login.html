@@ -1,0 +1,46 @@
+<div ng-if="show_register" id="register" ng-include="'/static/templates/partials/__register.html'"></div>
+<div id="loginCtrl">
+    <div class="left">
+        <img src="/static/i/home_logo.png" rel="logo"/>
+        <h1>BEM VINDO! :D</h1>
+        <h2>Aqui voce aprende ensinando</h2>
+        <h2>Somos uma rede de</h2>
+        <h3>CONHECIMENTO COMPARTILHADO</h3>
+    </div>
+    <div class="bar">
+        <div class="login-msg">
+            <span ng-show="error.msg">{{error.msg}}</span>
+        </div>
+        <div class="login-tab">
+            <span>LOGIN</span>
+            <form>
+                <table>
+                    <tr>
+                        <td>
+                            <input ng-model="data.username" type="text" name="hack-login" placeholder="Nome do Usuário"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" ng-model="data.password" name="hack-passwd" placeholder="senha"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="submit" ng-click="login()">ENTRAR</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div><!--.login-tab-->
+
+        <div class="fb" ng-click="fbLogin()">
+            <img src="/static/i/fb-login-bar.png" />
+        </div>
+
+        <div class="register">
+            <span>É novo aqui? :o</span>
+            <input type="button" value="CADASTRE-SE" ng-click="showRegister()"/>
+        </div><!--.register-->
+    </div>
+</div>
