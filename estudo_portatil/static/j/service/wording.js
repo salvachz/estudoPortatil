@@ -27,7 +27,7 @@ app
                 function(response){
                     var data = response.data;
                     if(data.written_by.image)
-                        data.written_by.image = CONFIG.HOST+'/static/'+data.written_by.image;
+                        data.written_by.image = CONFIG.HOST+'/lyra/'+data.written_by.image;
                     q.resolve(data);
                 },
                 function(error){
