@@ -512,6 +512,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     width: 100%;
 }
 #main .addRedacao .ta-toolbar {
+    margin-top:2vw;
     background-color: #F0F0F0;
     padding: 10px 10px 5px;
     margin-left: 0px;

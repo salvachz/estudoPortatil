@@ -39,11 +39,13 @@ app
 
         },
         sendWording: function(data){
-            var q = $q.defer();
+            var n_data,q = $q.defer();
+            n_data = angular.copy(data);
+            n_data.text = atob(n_data.text);
             $http({
                     url: CONFIG.WS_URL+'/wording/',
                     method: "POST",
-                    data: $httpParamSerializer(data),
+                    data: $httpParamSerializer(n_data),
                     //data: data,
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded'
