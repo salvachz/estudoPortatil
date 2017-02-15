@@ -2,6 +2,10 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
 
     console.log('no EnviarRedacaoCtrl');
 
+    $scope.showHolder = function(){
+        return false;
+    };
+
     $scope.data = {};
     $scope.categorys = [];
 /*{
