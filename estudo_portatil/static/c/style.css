@@ -258,13 +258,16 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     background: #438f9d;
 }
 #dash-header .left{
-    margin-left:2vw;
-    margin-top:1vw;
-    width:5vw;
-    height:5vw;
-    border-radius:2.5vw;
-    background:#000;
+    width:8%;
+    height:100%;
+    background:#041922;
     float:left;
+}
+#dash-header .left img{
+    display:block;
+    width:80%;
+    margin-top:2vw;
+    margin-left:10%;
 }
 #dash-header .right{
     position:relative;
@@ -302,6 +305,18 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 
 #dash-header .right:hover > .menu{
     display:block;
+}
+
+/* Dash Left Menu*/
+#dash-left-menu {
+    width:8%;
+    background:#122e38;
+    position:fixed;
+    height:100%;
+}
+.lyra-content{
+    width:92%;
+    float:right;
 }
 
 

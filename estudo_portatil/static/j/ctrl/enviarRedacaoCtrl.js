@@ -2,9 +2,8 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
 
     console.log('no EnviarRedacaoCtrl');
 
-    $scope.showHolder = function(){
-        return false;
-    };
+    $scope.showHolder = false;
+    $scope.errors = [];
 
     $scope.data = {};
     $scope.categorys = [];
@@ -35,6 +34,8 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
                 alert('aqui deveria ter uma tela de sucesso! pq deu boa o/');
             },
             function(error){
+                console.log('deu ruim');
+                $scope.errors = error.errors;
             }
         );
     }

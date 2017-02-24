@@ -55,7 +55,7 @@ app
                 },
                 function(error){
                     console.log('error on sendWording HTTP',JSON.stringify(error));
-                    q.reject(error)
+                    q.reject(error.data)
                 }
             );
             return q.promise

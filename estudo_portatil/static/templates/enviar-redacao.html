@@ -1,6 +1,9 @@
 <div id="main">
     <div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
     <div class="addRedacao">
+    <ul class="errors" ng-show="errors.length">
+        <li ng-repeat="error in errors">{{error}}</li>
+    </ul>
         <select ng-model="data.category" ng-options="cat.id as cat.name for cat in categorys">
             <option value="" disabled="true" selected="true">Selecione</option>
         </select>
