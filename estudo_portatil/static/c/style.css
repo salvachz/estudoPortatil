@@ -256,6 +256,9 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 #dash-header{
     height:7vw;
     background: #438f9d;
+    position:absolute;
+    z-index:2;
+    width:100%;
 }
 #dash-header .left{
     width:8%;
@@ -314,13 +317,28 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     position:fixed;
     height:100%;
 }
-.lyra-content{
-    width:92%;
-    float:right;
+#dash-left-menu ul{
+    width:100%;
+    margin-top:12vw;
+    
+}
+#dash-left-menu ul li{
+    width:90%;
+    margin:auto;
+    display:block;
+    margin-top:10%;
+    
+}
+#dash-left-menu ul li img{
+    display:block;
+    margin:auto;
 }
 
 
 /* Main */
+#main {
+    margin-top:8vw;
+}
 #main .dashboard{
     width:60%;
     margin:auto;
