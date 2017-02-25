@@ -3,9 +3,33 @@
 <div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
 <div id="main">
     <div class="dashboard lyra-content">
-        <div ng-click="go('/propostas-redacao')"class="slice1 slice"><span>Propostas de Redação.</span></div>
-        <div ng-click="getNextWording()"class="slice2 slice"><span>Por que não ajudar corrigindo redações? :D</span></div>
-        <div ng-click="go('/enviar-redacao')"class="slice3 slice"><span>Fez uma redação nova?</span><span class="no-nl">Envie aqui sua redação! :)</span></div>
-        <div class="clear"></div>
+        <div class="written">
+            <table>
+                <thead>
+                    <tr>
+                        <td><h1>MINHAS REDAÇÕES</h1></td>
+                        <td><h2>NOTAS</h2></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="cat"><span>sustentabilidade</span></div>
+                            <span class="title">Como as energias renováveis podem auxiliar o desenvolvimento sustentável</span>
+                        </td>
+                        <td><span class="score">--,--</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="correction">
+            <table>
+                <thead>
+                    <tr>
+                        <td><h1>MINHAS AVALIAÇOẼS</h1></td>
+                        <td><h2>NOTAS</h2></td>
+                </thead>
+            </table>
+        </div>
     </div><!--.dashboard-->
 </div><!--.main-->
