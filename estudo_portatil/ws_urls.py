@@ -12,6 +12,9 @@ urlpatterns = [
         'get':'list',
         'post':'create'
     })),
+    url(r'^feedback/$', views.FeedbackViewSet.as_view({
+        'post':'send'
+    })),
     url(r'^wording/(?P<pk>[0-9]+)/$', views.WordingViewSet.as_view({
         'get':'retrive'
     })),

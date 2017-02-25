@@ -1,5 +1,15 @@
-<div ng-controller="feedbackCtrl">
-    <div class="holder">
-        <div class="txt">feedback</div>
+<div ng-controller="FeedbackCtrl">
+    <div class="box">
+        <div class="holder" ng-click="showFeedback()">
+            <div class="txt">feedback</div>
+        </div>
+    </div>
+    <div class="container" ng-show="stsFeedback">
+        <div class="center">
+            <span>Envie seu Feedback:</span>
+            <input placeholder="assunto" type="text" ng-model="feedback.subject" />
+            <textarea placeholder="mensagem..." ng-model="feedback.text"></textarea>
+            <div class="send" ng-click="send()">Enviar</div>
+        </div>
     </div>
 </div>
