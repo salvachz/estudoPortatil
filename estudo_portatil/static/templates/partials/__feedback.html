@@ -4,12 +4,26 @@
             <div class="txt">feedback</div>
         </div>
     </div>
-    <div class="container" ng-show="stsFeedback">
-        <div class="center">
+    <div class="container" ng-show="sts.feedback">
+        <div class="center" ng-show="sts.form">
+            <div ng-click="close()" class="close">x</div>
             <span>Envie seu Feedback:</span>
-            <input placeholder="assunto" type="text" ng-model="feedback.subject" />
-            <textarea placeholder="mensagem..." ng-model="feedback.text"></textarea>
+            <input placeholder="assunto" type="text" ng-model="feedback.assunto" />
+            <textarea placeholder="mensagem..." ng-model="feedback.mensagem"></textarea>
+            <ul ng-show="errors" class="errors">
+                <li ng-repeat="error in errors">{{error}}</li>
+            </ul>
             <div class="send" ng-click="send()">Enviar</div>
+        </div>
+
+        <div class="quack-gif" ng-show="sts.quack">
+            <img src="/static/i/quack-hammer.gif" />
+            <span>Enviando...</span>
+        </div>
+        <div class="success" ng-show="sts.success">
+            <div ng-click="close()" class="close">x</div>
+            <span>Feedback enviado!</span>
+            <span>Muito Obrigado, sua colaboração é muito importante para a gente.</span>
         </div>
     </div>
 </div>

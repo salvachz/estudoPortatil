@@ -18,8 +18,8 @@ class FeedbackViewSet(viewsets.ModelViewSet):
     def send(self, request, format=None):
         data = {}
         errors = []
-        data['subject'] = request.data.get('subject','')
-        data['text'] = request.data.get('text','')
+        data['assunto'] = request.data.get('assunto','')
+        data['mensagem'] = request.data.get('mensagem','')
         print data
         for k in data:
             if not data[k]:
@@ -28,8 +28,8 @@ class FeedbackViewSet(viewsets.ModelViewSet):
             return Response({'errors':errors}, status=404)
 
         send_mail(
-            data['subject'],
-            data['text'],
+            '[feedback lyra] %s' % data['assunto'],
+            data['mensagem'],
             request.user.email,
             ['chavez@agenciaprimavera.com.br'],
             fail_silently=False,

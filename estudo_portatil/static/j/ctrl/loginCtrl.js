@@ -40,7 +40,7 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
             } else {
              console.log('User cancelled login or did not fully authorize.');
             }
-        });
+        }, {scope: 'email'});
     }
 
     $scope.showRegister = function(){

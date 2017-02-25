@@ -29,15 +29,12 @@ class LoginView(APIView):
 
         #profile account by facebook
         if fb_token:
-            has_email = True
             facebookToken = FacebookToken(fb_token)
             if not facebookToken.is_valid():
                 return Response({'login':False, 'msg':'fb_token invalido'},status=403)
 
             data = facebookToken.get_fb_user_data()
-            print 'data',data
             user, created = UserProfile.objects.get_or_create(facebook_id=data['id'])
-            print 'user created'
             user.last_login = timezone.now()
             if created:
                 user.name = data['name']
@@ -47,16 +44,11 @@ class LoginView(APIView):
                 if userSerialized.is_valid():
                     userSerialized.save()
             if not user.email:
-                user.email = '%s@facebook.com' % data['id']
+                user.email = data['email']
                 user.set_password('0496874809')
-                has_email = False
             user.save()
             profile = authenticate(username=user.email, password='0496874809')
             login(request, profile)
-#            if not has_email:
-#                user.email = ''
-#                user.set_password(None)
-#                user.save()
 
             return Response({'login':True, 'msg':'logado FB com sucesso'}, status=200)
 
