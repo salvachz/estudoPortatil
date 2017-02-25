@@ -31,7 +31,7 @@ class FeedbackViewSet(viewsets.ModelViewSet):
             '[feedback lyra] %s' % data['assunto'],
             data['mensagem'],
             request.user.email,
-            ['chavez@agenciaprimavera.com.br'],
+            ['contato@agenciaprimavera.com.br'],
             fail_silently=False,
         )
         return Response({'status':'SUCCESS'}, status=200)
