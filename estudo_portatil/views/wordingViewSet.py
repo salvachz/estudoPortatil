@@ -2,6 +2,7 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions, viewsets
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.utils import timezone
+from django.db.models import Avg
 from estudo_portatil.models import UserProfile, Wording
 from estudo_portatil.serializers import WordingSerializer
 
@@ -20,7 +21,7 @@ class WordingViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def list_mine(self, request, format=None):
-        queryset = Wording.objects.filter(written_by_id=request.user.id)
+        queryset = Wording.objects.filter(written_by_id=request.user.id).annotate(avg_score=Avg('correction__score'))
         serializer = WordingSerializer(queryset, many=True, remove_fields=['text','suport_text','written_by'])
         return Response(serializer.data)
 

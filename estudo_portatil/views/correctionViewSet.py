@@ -18,8 +18,9 @@ class CorrectionViewSet(viewsets.ModelViewSet):
         data = request.data
         print 'data:',data
         if data.get('wording_id',None):
-            wording = Wording.objects.get(id=data['wording_id'][0])
+            wording = Wording.objects.get(id=data['wording_id'])
             profile = UserProfile.objects.get(id=request.user.id)
+            print profile
             correction, created = Correction.objects.get_or_create(wording=wording, corrected_by=profile)
             correction.score = data.get('score',0)
 

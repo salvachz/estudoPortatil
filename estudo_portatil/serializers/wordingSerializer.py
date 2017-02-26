@@ -8,6 +8,8 @@ class WordingSerializer(serializers.ModelSerializer):
     category = CategorySerializer(read_only=True)
     written_by = UserProfileSerializer(read_only=True)
 
+    avg_score = serializers.ReadOnlyField()
+
     def __init__(self, *args, **kwargs):
         remove_fields = kwargs.pop('remove_fields', None)
         super(WordingSerializer, self).__init__(*args, **kwargs)
@@ -19,5 +21,5 @@ class WordingSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Wording
-        fields = ('id', 'category', 'text', 'title', 'suport_text', 'written_by')
+        fields = ('id', 'category', 'text', 'title', 'suport_text', 'written_by', 'avg_score')
         read_only_fields = ('id','category', 'user')
