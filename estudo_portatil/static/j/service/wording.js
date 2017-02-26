@@ -20,6 +20,22 @@ app
 
         },
 
+        getMineWordingList: function(){
+            var q = $q.defer();
+            $http.get(CONFIG.WS_URL+'/wording/mine/')
+                .then(
+                function(response){
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on getMineWordingList HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
+
         getWording: function(id){
             var q = $q.defer();
             $http.get(CONFIG.WS_URL+'/wording/'+id+'/')

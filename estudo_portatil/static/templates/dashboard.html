@@ -12,10 +12,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr ng-repeat="written in writtens">
                         <td>
-                            <div class="cat"><span>sustentabilidade</span></div>
-                            <span class="title">Como as energias renováveis podem auxiliar o desenvolvimento sustentável</span>
+                            <div class="cat"><span>{{written.category.name}}</span></div>
+                            <span class="title">{{written.title}}</span>
                         </td>
                         <td><span class="score">--,--</span></td>
                     </tr>

@@ -7,6 +7,16 @@ class WordingSerializer(serializers.ModelSerializer):
 
     category = CategorySerializer(read_only=True)
     written_by = UserProfileSerializer(read_only=True)
+
+    def __init__(self, *args, **kwargs):
+        remove_fields = kwargs.pop('remove_fields', None)
+        super(WordingSerializer, self).__init__(*args, **kwargs)
+
+        if remove_fields:
+            # for multiple fields in a list
+            for field_name in remove_fields:
+                self.fields.pop(field_name)
+
     class Meta:
         model = Wording
         fields = ('id', 'category', 'text', 'title', 'suport_text', 'written_by')

@@ -528,6 +528,9 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 #main .dashboard table tbody{
     margin-top:1vw;
 }
+#main .dashboard table tbody .score{
+    margin:1.5vw 0;
+}
 #main .dashboard table tbody .cat{
     display:block;
     width:100%;

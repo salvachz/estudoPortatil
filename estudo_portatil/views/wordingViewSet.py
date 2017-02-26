@@ -19,6 +19,12 @@ class WordingViewSet(viewsets.ModelViewSet):
         serializer = WordingSerializer(queryset, many=True)
         return Response(serializer.data)
 
+    def list_mine(self, request, format=None):
+        queryset = Wording.objects.filter(written_by_id=request.user.id)
+        serializer = WordingSerializer(queryset, many=True, remove_fields=['text','suport_text','written_by'])
+        return Response(serializer.data)
+
+
     def retrive(self, request, pk=None):
         if not pk:
             return Response({'errors':['empty PK']}, status=404)
