@@ -25,7 +25,7 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         templateUrl: '/static/templates/propostas-redacao.html',
         controller: 'PropostasRedacaoCtrl'
     })
-    $routeProvider.when('/corrigir-redacao/:id', {
+    $routeProvider.when('/corrigir-redacao/:id/:slug', {
         templateUrl: '/static/templates/corrigir-redacao.html',
         controller: 'CorrigirRedacaoCtrl'
     })

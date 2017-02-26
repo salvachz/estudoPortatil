@@ -641,6 +641,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     float:right;
     width:55%;
     margin-right:15%;
+    margin-bottom:4vw;
 }
 #main .corrigirRedacao .content .wording-head{
     margin-top:3vw;
