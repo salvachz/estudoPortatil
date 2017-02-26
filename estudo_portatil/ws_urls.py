@@ -15,8 +15,11 @@ urlpatterns = [
     url(r'^feedback/$', views.FeedbackViewSet.as_view({
         'post':'send'
     })),
-    url(r'^wording/mine/', views.WordingViewSet.as_view({
-        'get':'list_mine'
+    url(r'^wording/written/', views.WordingViewSet.as_view({
+        'get':'list_written'
+    })),
+    url(r'^wording/correction/', views.WordingViewSet.as_view({
+        'get':'list_correction'
     })),
     url(r'^wording/(?P<pk>[0-9]+)/$', views.WordingViewSet.as_view({
         'get':'retrive'

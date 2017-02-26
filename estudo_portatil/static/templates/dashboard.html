@@ -1,6 +1,6 @@
-<div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
 <div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
 <div id="dash-left-menu" ng-include="'/static/templates/partials/__left_menu.html'"> </div>
+<div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
 <div id="main">
     <div class="dashboard lyra-content">
         <div class="written">
@@ -26,9 +26,21 @@
             <table>
                 <thead>
                     <tr>
+                        <td></td>
                         <td><h1>MINHAS AVALIAÇOẼS</h1></td>
                         <td><h2>NOTAS</h2></td>
                 </thead>
+                <tbody>
+                    <tr ng-repeat="correction in corrections">
+                         <td class="profile"><img alt="{{correction.written_by.name}}" ng-src="{{correction.written_by.image}}" /></td>
+                        <td>
+                            <div class="cat"><span>{{correction.category.name}}</span></div>
+                            <span class="title">{{correction.title}}</span>
+                        </td>
+                        <td><span class="score">{{correction.score||'--,--'}}</span></td>
+                    </tr>
+                </tbody>
+
             </table>
         </div>
     </div><!--.dashboard-->

@@ -20,15 +20,36 @@ app
 
         },
 
-        getMineWordingList: function(){
+        getWrittenWordingList: function(){
             var q = $q.defer();
-            $http.get(CONFIG.WS_URL+'/wording/mine/')
+            $http.get(CONFIG.WS_URL+'/wording/written/')
                 .then(
                 function(response){
                     q.resolve(response.data);
                 },
                 function(error){
-                    console.log('error on getMineWordingList HTTP',JSON.stringify(error));
+                    console.log('error on getWrittenWordingList HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
+
+        getCorrectionWordingList: function(){
+            var q = $q.defer();
+            $http.get(CONFIG.WS_URL+'/wording/correction/')
+                .then(
+                function(response){
+                    var data = response.data;
+                    for(var x=0;x<data.length;x++){
+                        if(data[x].written_by.image)
+                            data[x].written_by.image = CONFIG.HOST+'/lyra/'+data[x].written_by.image;
+                    }
+                    q.resolve(data);
+                },
+                function(error){
+                    console.log('error on getCorrectionWordingList HTTP',JSON.stringify(error));
                     q.reject(error)
                 }
             );

@@ -513,8 +513,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     padding-right:2%;
 }
 #main .dashboard .correction{
-    width:42%;
-    margin-left:5%;
+    width:48%;
     float:right;
     height:100%;
 }
@@ -527,6 +526,16 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 }
 #main .dashboard table tbody{
     margin-top:1vw;
+}
+#main .dashboard table tbody .profile{
+    width:6vw;
+}
+#main .dashboard table tbody .profile img{
+    display:block;
+    width:5vw;
+    height:5vw;
+    margin:auto;
+    border-radius:2.5vw;
 }
 #main .dashboard table tbody .score{
     margin:1.5vw 0;

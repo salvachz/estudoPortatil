@@ -21,10 +21,7 @@ app.controller('FeedbackCtrl', function($scope, $location, FeedbackService) {
     $scope.send = function(){
         $scope.sts.form = false;
         $scope.sts.quack = true;
-        var cp_feedback= angular.copy($scope.feedback);
-        $scope.feedback.assunto = '';
-        $scope.feedback.mensagem = '';
-        FeedbackService.sendFeedback(cp_feedback).then(
+        FeedbackService.sendFeedback($scope.feedback).then(
             function(data){
                 console.log('Deu boa! enviou o feedback');
                 $scope.showThankyou();
@@ -37,9 +34,12 @@ app.controller('FeedbackCtrl', function($scope, $location, FeedbackService) {
     };
 
     $scope.showThankyou = function(){
+        $scope.feedback.assunto = '';
+        $scope.feedback.mensagem = '';
         $scope.sts.form = false;
         $scope.sts.quack = false;
         $scope.sts.success= true;
+        $scope.errors = [];
     };
 
     $scope.close = function(){
