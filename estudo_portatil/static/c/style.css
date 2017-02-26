@@ -638,10 +638,14 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 /* Corrigir Redacao */
 
 #main .corrigirRedacao .content{
-    float:right;
-    width:55%;
+    width:90%;
+    margin-left:10%;
     margin-right:15%;
     margin-bottom:4vw;
+}
+#main .corrigirRedacao .content .text-holder{
+    width:60%;
+    margin:auto;
 }
 #main .corrigirRedacao .content .wording-head{
     margin-top:3vw;
@@ -687,6 +691,10 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     border: 1px solid #e2e2e2;
 }
 
+#main .corrigirRedacao .content .aval{
+    width:50%;
+    margin:auto;
+}
 #main .corrigirRedacao .content .aval table{
     width:100%;
 }
@@ -706,7 +714,8 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 }
 #main .corrigirRedacao .content .aval table tr td.textarea textarea{
     background:#eff3f5;
-    width:100%;
+    min-width:100%;
+    max-width:30vw;
     min-height:8vw;
     padding:0.8vw;
 }
