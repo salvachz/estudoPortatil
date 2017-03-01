@@ -374,6 +374,8 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 
 }
 #feedback .container {
+    top:0;
+    left:0;
     position:fixed;
     width:100%;
     height:100%;
@@ -745,6 +747,12 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     width:60%;
     margin:auto;
 }
+#main .addRedacao .errors{
+    margin-left:1vw;
+}
+#main .addRedacao .errors li{
+    color:#F00;
+}
 
 #main .addRedacao input, #main .addRedacao select, #main .addRedacao textarea{
     width:100%;
@@ -798,4 +806,28 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     display: inline-block;
     vertical-align: middle;
     margin-bottom:1vw;
+}
+#main .blackout{
+    top:0;
+    left:0;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAEUlEQVR42mNkOMOAARiHsiAAjfYIA7ZcCAoAAAAASUVORK5CYII=);
+    z-index:13;
+}
+#main .blackout .box{
+    width:30%;
+    height:20%;
+    margin:auto;
+    background:#FFF;
+    border-radius:1vw;
+    margin-top:10%;
+    text-align:center;
+}
+#main .blackout .box h1{
+    color:#00cb8f;
+}
+#main .blackout .box h2{
+    font-size:1.5vw;
 }

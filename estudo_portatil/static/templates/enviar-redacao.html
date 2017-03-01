@@ -2,15 +2,22 @@
 <div id="dash-left-menu" ng-include="'/static/templates/partials/__left_menu.html'"> </div>
 <div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
 <div id="main">
+    <div class="blackout" ng-show="success">
+        <div class="box">
+            <h1>Enviada com sucesso!</h1>
+            <h2>Assim que alguem corrigir sua redação você será avisado(a)!</h2>
+            <span>(você será redirecionado para a home)</span>
+        </div>
+    </div>
     <div class="addRedacao">
     <ul class="errors" ng-show="errors.length">
         <li ng-repeat="error in errors">{{error}}</li>
     </ul>
-        <select ng-model="data.category" ng-options="cat.id as cat.name for cat in categorys">
+        <select ng-model="data.categoria" ng-options="cat.id as cat.name for cat in categorias">
             <option value="" disabled="true" selected="true">Selecione</option>
         </select>
-        <input ng-model="data.title" placeholder="title" />
-        <div text-angular ng-model="data.text" name="demo-editor" ta-text-editor-class="clearfix border-around" ta-html-editor-class="border-around"></div>
+        <input ng-model="data.titulo" placeholder="titulo" />
+        <div text-angular  ta-toolbar="[['h1','h2','p'],['bold','italics'], ['indent', 'outdent'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'], ['wordcount', 'charcount']]" ng-model="data.texto" name="demo-editor" ta-text-editor-class="clearfix border-around" ta-html-editor-class="border-around"></div>
         <!--textarea ng-model="data.text"></textarea-->
         <input type="button" value="ENVIAR" ng-click="enviar()"/>
         <div class="clear"></div>

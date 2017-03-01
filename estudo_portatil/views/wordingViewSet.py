@@ -47,21 +47,21 @@ class WordingViewSet(viewsets.ModelViewSet):
     def create(self, request, format=None):
         data = {}
         errors = []
-        data['title'] = request.data.get('title','')
-        data['text'] = request.data.get('text','')
-        data['category_id'] = request.data.get('category','')
+        data['titulo'] = request.data.get('titulo','')
+        data['texto'] = request.data.get('texto','')
+        data['categoria'] = request.data.get('categoria','')
         for k in data:
             if not data[k]:
                 errors.append('%s em branco' % k)
         if errors:
             return Response({'errors':errors}, status=404)
-        if not data['category_id'].isdigit():
+        if not data['categoria'].isdigit():
                 errors.append('Categoria invalida')
         
         wording = Wording.objects.create(
-            title=data['title'],
-            text=data['text'],
-            category_id=data['category_id'],
+            title=data['titulo'],
+            text=data['texto'],
+            category_id=data['categoria'],
             written_by_id=request.user.id
         )
         wording.save()

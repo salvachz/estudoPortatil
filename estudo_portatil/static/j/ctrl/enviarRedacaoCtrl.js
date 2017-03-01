@@ -1,12 +1,33 @@
-app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $scope, $location, textAngularManager) {
+app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $scope, $location, textAngularManager, $interval, $timeout) {
 
     console.log('no EnviarRedacaoCtrl');
-
+    $scope.drawingState = false;
+    $scope.hasToPreSaveDrawing = false;
     $scope.showHolder = false;
     $scope.errors = [];
+    $scope.success = false;
 
-    $scope.data = {};
-    $scope.categorys = [];
+    var preSaveDrawing = window.localStorage.getItem('preSaveDrawing');
+
+    $scope.data = {
+        categoria:'',
+        titulo:'',
+        texto:preSaveDrawing?atob(preSaveDrawing):''
+    };
+    $scope.categorias = [];
+
+    $scope.checkDrawingStatus = function(event){
+        if($scope.data.texto){
+            window.localStorage.setItem('preSaveDrawing',btoa($scope.data.texto));
+            $scope.hasToPreSaveDrawing = true;
+        }
+        else if($scope.hasToPreSaveDrawing){
+            window.localStorage.removeItem('preSaveDrawing');
+            $scope.hasToPreSaveDrawing = false;
+        }
+    }
+
+    $scope.runningInterval = $interval($scope.checkDrawingStatus,500)
 /*{
         'id':1,
         'name': 'Sustentabilidade'
@@ -17,7 +38,7 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
     }
     */
     CategoryService.getCategoryList().then(function(data){
-        $scope.categorys = data;
+        $scope.categorias = data;
     });
 
     $scope.go = function(path){
@@ -26,12 +47,17 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
 
     $scope.enviar = function(){
             var n_data = {};
-            n_data.category = $scope.data.category;
-            n_data.title = $scope.data.title;
-            n_data.text = btoa($scope.data.text);
+            n_data.categoria = $scope.data.categoria;
+            n_data.titulo = $scope.data.titulo;
+            n_data.texto = btoa($scope.data.texto);
         WordingService.sendWording(n_data).then(
             function(response){
-                alert('aqui deveria ter uma tela de sucesso! pq deu boa o/');
+                $scope.success = true;
+                $interval.cancel($scope.runningInterval);
+                window.localStorage.removeItem('preSaveDrawing');
+                $timeout(function(){
+                    $location.path('/dashboard');
+                },2000);
             },
             function(error){
                 console.log('deu ruim');
