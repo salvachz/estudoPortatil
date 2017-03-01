@@ -1,7 +1,8 @@
-app.controller('CorrigirRedacaoCtrl', function(WordingService, CorrectionService, $scope, $location,  $routeParams, CONFIG) {
+app.controller('CorrigirRedacaoCtrl', function(WordingService, CorrectionService, $scope, $location,  $routeParams, CONFIG, $timeout) {
 
     console.log('no corrigir redacao');
     $scope.scores = [];
+    $scope.success = false;
     for(var x=1;x<=10;x++)
         $scope.scores.push({id:x,name:(x< 10 ? '0' : '') + x})
 
@@ -45,7 +46,7 @@ app.controller('CorrigirRedacaoCtrl', function(WordingService, CorrectionService
             if(slug != page_title)
                 $location.path('corrigir-redacao/'+wording.id+'/'+slug).replace();
 
-            wording.text = atob(wording.text);
+            wording.text = decodeURIComponent(escape(window.atob(wording.text)));
             $scope.wording = wording;
             CorrectionService.getCorrectionItemList(wording_id).then(
                 function(data){ 
@@ -68,7 +69,14 @@ app.controller('CorrigirRedacaoCtrl', function(WordingService, CorrectionService
     }
 
     $scope.enviar = function(){
-        CorrectionService.saveCorrection($scope.data);
+        CorrectionService.saveCorrection($scope.data).then(
+            function(data){
+                $scope.success = true;
+                $timeout(function(){$location.path('/dashboard')},2000);
+            },
+            function(error){
+            }
+        );
     }
 
 

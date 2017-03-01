@@ -1,7 +1,7 @@
     <div ng-controller="LeftMenuCtrl">
         <ul>
             <li ng-repeat="item in items">
-                <a ng-click="go(item.path)">
+                <a ng-click="go(item.path)" ng-class="item.name">
                     <img ng-src="/static/i/lmenu/{{item.icon}}" />
                 </a>
             </li>

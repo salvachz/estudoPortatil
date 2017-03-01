@@ -2,8 +2,13 @@
 <div id="dash-left-menu" ng-include="'/static/templates/partials/__left_menu.html'"> </div>
 <div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
 <div id="main">
+    <div class="blackout" ng-show="success">
+        <div class="box">
+            <h1>Corrigido com sucesso!</h1>
+            <span>(você será redirecionado para a home)</span>
+        </div>
+    </div>
     <div class="corrigirRedacao">
-        <div class="sidebar"></div>
         <div class="content">
             <div class="text-holder">
                 <div class="wording-head">

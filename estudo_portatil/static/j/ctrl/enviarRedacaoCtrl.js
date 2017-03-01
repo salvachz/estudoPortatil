@@ -12,13 +12,13 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
     $scope.data = {
         categoria:'',
         titulo:'',
-        texto:preSaveDrawing?atob(preSaveDrawing):''
+        texto:preSaveDrawing?decodeURIComponent(escape(atob(preSaveDrawing))):''
     };
     $scope.categorias = [];
 
     $scope.checkDrawingStatus = function(event){
         if($scope.data.texto){
-            window.localStorage.setItem('preSaveDrawing',btoa($scope.data.texto));
+            window.localStorage.setItem('preSaveDrawing',btoa(unescape(encodeURIComponent($scope.data.texto))));
             $scope.hasToPreSaveDrawing = true;
         }
         else if($scope.hasToPreSaveDrawing){
@@ -49,7 +49,7 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
             var n_data = {};
             n_data.categoria = $scope.data.categoria;
             n_data.titulo = $scope.data.titulo;
-            n_data.texto = btoa($scope.data.texto);
+            n_data.texto = btoa(unescape(encodeURIComponent($scope.data.texto)));
         WordingService.sendWording(n_data).then(
             function(response){
                 $scope.success = true;
