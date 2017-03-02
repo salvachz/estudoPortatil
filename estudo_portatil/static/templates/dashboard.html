@@ -32,12 +32,29 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="correction in corrections">
-                         <td class="profile"><img alt="{{correction.written_by.name}}" ng-src="{{correction.written_by.image}}" /></td>
-                        <td>
-                            <div class="cat"><span>{{correction.category.name}}</span></div>
-                            <span class="title">{{correction.title}}</span>
+                         <td class="profile">
+                            <a 
+                                href="minha-avaliacao/{{correction.id}}/{{generateSlug(correction.title)}}"
+                                ng-click="goTo('/minha-avaliacao/'+correction.id+'/'+generateSlug(correction.title))">
+                                <img alt="{{correction.written_by.name}}" ng-src="{{correction.written_by.image}}" />
+                            </a>
                         </td>
-                        <td><span class="score">{{correction.score||'--,--'}}</span></td>
+                        <td>
+
+                            <a 
+                                href="minha-avaliacao/{{correction.id}}/{{generateSlug(correction.title)}}"
+                                ng-click="goTo('/minha-avaliacao/'+correction.id+'/'+generateSlug(correction.title))">
+                                <div class="cat"><span>{{correction.category.name}}</span></div>
+                                <span class="title">{{correction.title}}</span>
+                            </a>
+                        </td>
+                        <td>
+                            <a 
+                                href="minha-avaliacao/{{correction.id}}/{{generateSlug(correction.title)}}"
+                                ng-click="goTo('/minha-avaliacao/'+correction.id+'/'+generateSlug(correction.title))">
+                                <span class="score">{{correction.score||'--,--'}}</span>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
 

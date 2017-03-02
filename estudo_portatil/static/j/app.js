@@ -37,6 +37,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         templateUrl: '/static/templates/enviar-redacao.html',
         controller: 'EnviarRedacaoCtrl'
     })
+    $routeProvider.when('/minha-avaliacao/:id/:slug', {
+        templateUrl: '/static/templates/minha-avaliacao.html',
+        controller: 'MinhaAvaliacaoCtrl'
+    })
   .otherwise({redirectTo : '/login'});
 
   //for 403 forbidden errors

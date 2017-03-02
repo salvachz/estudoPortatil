@@ -1,0 +1,56 @@
+<div id="dash-header" ng-include="'/static/templates/partials/__header.html'"> </div>
+<div id="dash-left-menu" ng-include="'/static/templates/partials/__left_menu.html'"> </div>
+<div id="feedback" ng-include="'/static/templates/partials/__feedback.html'"> </div>
+<div id="main">
+    <div class="blackout" ng-show="success">
+        <div class="box">
+            <h1>Corrigido com sucesso!</h1>
+            <span>(você será redirecionado para a home)</span>
+        </div>
+    </div>
+    <div class="corrigirRedacao">
+        <div class="content">
+            <div class="text-holder">
+                <div class="wording-head">
+                    <div class="left">
+                        <div class="logo">
+                            <img ng-src="{{wording.written_by.image}}" />
+                        </div>
+                        <div class="name">{{wording.written_by.name}}</div>
+                        <div class="date">{{wording.written_at}}</div>
+                    </div>
+                    <div class="right">
+                        <span>{{wording.category.name}}</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <h1 class="title">
+                    {{wording.title}}
+                </h1>
+
+                <div class="text" ng-bind-html="wording.text">
+                </div>
+            </div><!--.text-holder-->
+
+            <div class="aval">
+                <table>
+                    <tr ng-repeat="(topic_id,topic) in topics">
+                            <td class="info">
+                                {{topic}}
+                            </td>
+                            <td class="textarea">
+                                <textarea readonly ng-model="data[topic_id]" placeholder="Escreva aqui sua avaliação...."></textarea>
+                            </td>
+                    </tr>
+                    <tr class="last">
+                        <td>NOTA</td>
+                        <td>
+                            {{data.score}}
+                        </td>
+                    </tr>
+                </table>
+            </div><!--.aval-->
+        </div><!--.content-->
+    </div><!--.propostaRedacao-->
+</div><!--.main-->
