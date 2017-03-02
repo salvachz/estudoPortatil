@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions, viewsets
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.utils import timezone
-from django.db.models import Avg
+from django.db.models import Avg, Q
 from estudo_portatil.models import UserProfile, Wording, Correction
 from estudo_portatil.serializers import WordingSerializer
 
@@ -16,7 +16,7 @@ class WordingViewSet(viewsets.ModelViewSet):
     serializer_class = WordingSerializer
 
     def list(self, request, format=None):
-        queryset = Wording.objects.all()
+        queryset = Wording.objects.filter(~Q(written_by_id=request.user.id))
         serializer = WordingSerializer(queryset, many=True)
         return Response(serializer.data)
 

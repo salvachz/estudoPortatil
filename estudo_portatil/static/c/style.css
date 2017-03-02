@@ -502,13 +502,13 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 
 /* Main */
 #main {
-    margin-top:8vw;
+    margin-top:6vw;
 }
 
 /* Dashboard */
 #main .dashboard{
-    width:92%;
-    margin-left:8%;
+    width:95%;
+    margin-left:5%;
     color:#112f37;
     margin-top:-1vw;
     position:fixed;
@@ -516,21 +516,27 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 }
 
 #main .dashboard .written{
-    width:42%;
-    margin-left:5%;
+    width:49%;
     float:left;
-    height:100%;
+    height:90%;
     border-right:2px solid #438f9d;
-    padding-right:2%;
+    overflow-y: auto;
 }
 #main .dashboard .correction{
-    width:48%;
+    width:50%;
     float:right;
-    height:100%;
+    height:90%;
+    overflow-y: auto;
 }
 #main .dashboard table{
     margin-top:1vw;
     width:100%;
+}
+#main .dashboard table tr td:first-of-type{
+    padding-left:2vw;
+}
+#main .dashboard table tbody tr:nth-child(2n){
+    background:#f2fcf9;
 }
 #main .dashboard thead h1, #main .dashboard thead h2{
     margin-bottom:1vw;
