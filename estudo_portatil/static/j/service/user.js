@@ -26,6 +26,30 @@ app
 
         },
 
+        validateEmail: function(data){
+            var q = $q.defer();
+            $http({
+                    url: CONFIG.WS_URL+'/confirmation-email/',
+                    method: "POST",
+                    data: $httpParamSerializer(data),
+                    //data: data,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                })
+                .then(
+                function(response){
+                    q.resolve(response.data);
+                },
+                function(error){
+                    console.log('error on validateEmail HTTP',JSON.stringify(error));
+                    q.reject(error)
+                }
+            );
+            return q.promise
+
+        },
+
         me: function(){
             var q = $q.defer();
             $http({

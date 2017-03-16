@@ -851,3 +851,30 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
 #main .blackout .box h2{
     font-size:1.5vw;
 }
+
+/* Confirmar Email */
+#confirmar-email{
+    width:40%;
+    height:40%;
+    margin-left:30%;
+    margin-top:10%;
+    background: #FFF;
+    border: 1px solid #e2e2e2;
+}
+#confirmar-email span{
+    text-align:center;
+    display:block;
+}
+#confirmar-email .quack{
+    display:block;
+    width:30%;
+    margin:auto;
+    margin-top:5%;
+    
+}
+#confirmar-email .success{
+    color: #0F0;
+}
+#confirmar-email .failed{
+    color: #F00;
+}

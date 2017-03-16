@@ -17,6 +17,10 @@ app.config(['$routeProvider', '$locationProvider', '$httpProvider', function($ro
         templateUrl: '/static/templates/login.html',
         controller: 'LoginCtrl'
     })
+    $routeProvider.when('/confirmar-email/:email/:key', {
+        templateUrl: '/static/templates/confirmar-email.html',
+        controller: 'ConfirmarEmailCtrl'
+    })
     $routeProvider.when('/dashboard', {
         templateUrl: '/static/templates/dashboard.html',
         controller: 'DashboardCtrl'

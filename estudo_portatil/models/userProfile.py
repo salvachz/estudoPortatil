@@ -50,13 +50,12 @@ class UserProfile(AbstractBaseUser):
                         default='',
                     )
     name = models.CharField(db_column='uprName',max_length=90, blank=False, default='')
-    bairro = models.CharField(db_column='uprBairro',max_length=90, blank=False, default='')
-    escola = models.CharField(db_column='uprEscola',max_length=90, blank=False, default='')
-    ano_letivo = models.CharField(db_column='uprAnoLetivo',max_length=90, blank=False, default='')
     date_joined = models.DateTimeField(db_column='uprDataJoined', default=timezone.now,blank=True)
     is_active = models.BooleanField(db_column='uprIsActive', default=True)
     is_admin = models.BooleanField(db_column='uprIsAdmin', default=False)
     facebook_id = models.BigIntegerField(db_column='uprFbIf', default=False)
+    status = models.CharField(db_column='useStatus', max_length=200, blank=False, null=False, default="waitingEmail", choices=[(x,x) for x in ['waitingEmail', 'confirmed']])
+    hashpass = models.CharField(db_column='useHashpass', max_length=56, blank=True, null=True)
 
     login_with = models.CharField(db_column='useLoginWith', max_length=11, blank=True, null=True)
     image = models.ImageField(upload_to='user-img', db_column='uprImgSrc', blank=True, null=True)

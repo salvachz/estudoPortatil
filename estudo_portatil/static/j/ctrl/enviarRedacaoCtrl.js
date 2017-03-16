@@ -45,7 +45,22 @@ app.controller('EnviarRedacaoCtrl', function(WordingService, CategoryService, $s
          $location.path(path);
     }
 
+    $scope.hasMinSize = function(text){
+        var tmp,minSize,splited, minWords = 30;
+        splited = text.split(" ");
+        tmp = text.replace(/ /g,"");
+        minChars = 3 * splited.length;
+        if((splited.length<minWords) || (tmp.length < minChars))
+            return false;
+        return true;
+    };
+
     $scope.enviar = function(){
+            if(!$scope.hasMinSize($scope.data.texto)){
+                $scope.errors = ['texto muito pequeno "/'];
+                return false;
+            }
+
             var n_data = {};
             n_data.categoria = $scope.data.categoria;
             n_data.titulo = $scope.data.titulo;

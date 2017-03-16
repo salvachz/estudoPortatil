@@ -36,5 +36,8 @@ urlpatterns = [
     url(r'^me/$', views.UserProfileViewSet.as_view({
         'get': 'me'
     })),
+    url(r'^confirmation-email/$', views.UserProfileViewSet.as_view({
+        'post': 'confirmation_email'
+    })),
 
 ]

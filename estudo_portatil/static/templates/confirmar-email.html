@@ -1,0 +1,12 @@
+<div id="confirmar-email">
+    <div ng-show="status=='loading'">
+        <img src="/static/i/quack-hammer.gif" class="quack"/>
+        <span>Validando...</span>
+    </div>
+    <div ng-show="status=='success'" class="success">
+        Email confirmado com sucesso! Voce pode realizer o login clicando <a ng-href="dashboard" href="javascript:void(0);">aqui</a>!
+    </div>
+    <div ng-show="status=='failed'" class="failed">
+        Infelizmente nao encontramos esse email na nossa base "/
+    </div>
+</div>
