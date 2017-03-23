@@ -102,7 +102,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return hashlib.sha224("%smelocotom%s" % (email, datetime.now())).hexdigest()
 
     def __send_confirmation_email(self, email, hashpass):
-        link = "http://local.resumoportatil.com.br/lyra/confirmar-email/%(email)s/%(hashpass)s" % {'email': urllib.quote(email), 'hashpass':urllib.quote(hashpass)}
+        link = "http://resumoportatil.com.br/lyra/confirmar-email/%(email)s/%(hashpass)s" % {'email': urllib.quote(email), 'hashpass':urllib.quote(hashpass)}
         with open(BASE_TEMPLATES+'/email.html','r') as f:
             data = f.read()
         mensagem = data.replace('||LINK||', link)
