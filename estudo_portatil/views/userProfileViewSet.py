@@ -10,6 +10,7 @@ from django.core.validators import validate_email
 from django.contrib.auth import authenticate, login, logout
 from estudo_portatil.models import UserProfile
 from estudo_portatil.serializers import UserProfileSerializer
+from hack.settings import BASE_TEMPLATES
 
 import hashlib
 import urllib
@@ -100,11 +101,14 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         return hashlib.sha224("%smelocotom%s" % (email, datetime.now())).hexdigest()
 
     def __send_confirmation_email(self, email, hashpass):
-        mensagem = 'clique <a href="http://local.resumoportatil.com.br/lyra/confirmar-email/%(email)s/%(hashpass)s">aqui</a> para confirmar seu cadastro no lyra!' % {'email': urllib.quote(email), 'hashpass':urllib.quote(hashpass)}
+        link = "http://local.resumoportatil.com.br/lyra/confirmar-email/%(email)s/%(hashpass)s" % {'email': urllib.quote(email), 'hashpass':urllib.quote(hashpass)}
+        with open(BASE_TEMPLATES+'/email.html','r') as f:
+            data = f.read()
+        mensagem = data.replace('||LINK||', link)
         send_mail(
-            'Ative sua conta no Lyra!',
+            'Bem vindo ao Lyra! :D',
             '',
-            'noreplay@agenciaprimavera.com.br',
+            'Resumo Portatil<noreplay@agenciaprimavera.com.br>',
             [email],
             html_message=mensagem,
             fail_silently=False,

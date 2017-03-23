@@ -136,6 +136,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 #if not DEBUG:
 STATIC_ROOT = 'static/'
+BASE_TEMPLATES = BASE_DIR+'/estudo_portatil/templates/'
 
 AUTH_PROFILE_MODULE = 'estudo_portatil.UserProfile'
 AUTH_USER_MODEL = 'estudo_portatil.UserProfile'
