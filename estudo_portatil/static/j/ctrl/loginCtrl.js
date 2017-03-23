@@ -56,7 +56,7 @@ app.controller('LoginCtrl', function(UserService, $scope, $location) {
         UserService.createUser($scope.data).then(
             function(response){
                 $scope.created.success = true;
-                $location.path('/dashboard');
+                $scope.register_error.data = false;
             },
             function(error){
                 $scope.register_error.data = error.data.errors;

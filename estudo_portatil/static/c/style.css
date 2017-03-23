@@ -93,6 +93,11 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZwAAAGcCAMA
     color: #FFF;
     padding-left: 1vw;
 }
+#register .register-div .msgs ul li.created-success{
+    background: #0F0;
+    text-align:center;
+    color:#888;
+}
 #register .register-div .msgs .created{
     background:#0F0;
     color:#FFF;

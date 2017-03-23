@@ -39,6 +39,11 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             email = urllib.unquote(email)
             key = urllib.unquote(key)
             user = UserProfile.objects.filter(hashpass=key,email=email)
+            if not user:
+                return Response({'validated':False}, status=200)
+            user = user[0]
+            user.status = 'confirmed'
+            user.save()
             print 'user',user
             return Response({'validated':True}, status=200)
 
@@ -58,12 +63,8 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             errors.append('Nome não foi preenchido')
         if not data.get('passwd',None) or not data.get('conf_passwd',None) or data.get('passwd',None) != data.get('conf_passwd',None):
             errors.append('senha nao confere ou está em branco')
-        #if not data.get('bairro',None):
-        #    errors.append('bairro em branco')
-        #if not data.get('escola',None):
-        #    errors.append('escola em branco')
-        #if not data.get('ano_letivo',None):
-        #    errors.append('serie em branco')
+        if len(data.get('passwd','')) < 8:
+            errors.append('senha deve conter no minimo 8 caracteres')
         if errors:
             return Response({'errors':errors},403)
         try:
@@ -85,10 +86,10 @@ class UserProfileViewSet(viewsets.ModelViewSet):
         user.save()
 
         #log in the profile
-        profile = authenticate(username=user.email, password=data['passwd'])
-        login(request, profile)
+        #profile = authenticate(username=user.email, password=data['passwd'])
+        #login(request, profile)
 
-        return Response(UserProfileSerializer(user).data)
+        return Response({'created':True},200)
 
     def __validate_email(self, email):
         try:

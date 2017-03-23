@@ -2,26 +2,18 @@
     <div class="close" ng-click="closeRegister()">x</div>
     <div class="msgs">
         <ul>
+            <li class="created-success" ng-show="created.success">
+            Cadastrado com sucesso!<br/>
+            Lhe enviamos um e-mail de confirmação, por favor, verifique seu email.
+            </li>
             <li ng-repeat="error in register_error.data" ng-show="register_error.data">{{error}}</li>
         </ul>
-        <div class="created" ng-show="created.success">
-            Conta Criada com sucesso! Redirecionando...
-        </div>
     </div>
     <div class="holder">
         <input ng-model="data.email" name="email" placeholder="Seu email" type="text" />
         <input ng-model="data.name" name="name" placeholder="Seu nome" type="text" />
         <input ng-model="data.passwd"  name="senha" placeholder="Senha" type="password" />
         <input ng-model="data.conf_passwd"  name="confsenha" placeholder="Confirmar Senha" type="password" />
-        <!--select name="bairro" ng-model="data.bairro" >
-            <option value="val" ng-repeat="val in ['santa Candida', 'Bairro Alto']">{{val}}</option>
-        </select>
-        <select name="escola" ng-model="data.escola" >
-            <option value="val" ng-repeat="val in ['So vai', 'So vem']">{{val}}</option>
-        </select>
-        <select name="serie" ng-model="data.ano_letivo" >
-            <option value="val" ng-repeat="val in [1,2,3,4,5,6,7,8,9]">{{val}} Ano</option>
-        </select-->
         <input type="button" value="CADASTRAR" ng-click="cadastrar()"/>
     </div>
 </div>

@@ -56,6 +56,8 @@ class LoginView(APIView):
         profile = authenticate(username=username, password=password)
         if profile is None:
             return Response({'login':False, 'msg':'email/senha não encontrados!'}, status=200)
+        if profile.status != 'confirmed':
+            return Response({'login':False, 'msg':'usuario inativo, por favor confirme seu email!'}, status=200)
 
         login(request, profile)
         return Response({'login':True, 'msg':'logado com sucesso'}, status=200)
