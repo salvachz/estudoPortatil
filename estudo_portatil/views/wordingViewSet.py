@@ -16,7 +16,9 @@ class WordingViewSet(viewsets.ModelViewSet):
     serializer_class = WordingSerializer
 
     def list(self, request, format=None):
-        queryset = Wording.objects.filter(~Q(written_by_id=request.user.id))
+        corrections_by_me= Correction.objects.filter(corrected_by=request.user).values('wording').all()
+        queryset = Wording.objects.filter(~Q(written_by_id=request.user.id), ~Q(id__in=corrections_by_me))
+        print 'aqui',queryset.query
         serializer = WordingSerializer(queryset, many=True)
         return Response(serializer.data)
 
